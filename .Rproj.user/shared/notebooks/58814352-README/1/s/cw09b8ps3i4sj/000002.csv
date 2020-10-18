@@ -1,0 +1,3 @@
+"0","st_fullData <- bestnormalize2.fullData %>%"
+"0","  tibble::column_to_rownames('ID') %>%"
+"0","  dplyr::mutate_if(is.numeric, base::scale)"

@@ -1,0 +1,109 @@
+# Require packages
+check_packages(
+  bioc_packages = c("ropls", "mixOmics", "ComplexHeatmap"),
+  cran_packages = c(
+    "readxl", "tidyverse", "ggraptR", "mice", "naniar",
+    "knitr", "corrplot", "cowplot", "bestNormalize",
+    "circlize", "xtable", "caret"
+  )
+)
+
+# The data used in this project is comprised of three sets in one xlsx file:
+#
+#   1. Nightingale NMR data
+#   2. Sample metadata
+#   3. Variable metadata
+#
+# Get data:
+dataMatrix <- read_excel(
+  "~/projekt_data/2019-03-11_VIPVIZA-ITC_data/14766.xlsx",
+  sheet = "dataMatrix",
+  na = c("0")
+)
+dataMatrix <- as.data.frame(dataMatrix)
+dataMatrix$ID <- base::as.character(dataMatrix$ID)
+
+sampleMetadata <- read_excel(
+  "~/projekt_data/2019-03-11_VIPVIZA-ITC_data/14766.xlsx",
+  sheet = "sampleMetadata"
+)
+sampleMetadata <- as.data.frame(sampleMetadata)
+
+sampleMetadata$ID <- base::as.character(sampleMetadata$ID)
+sampleMetadata$sex_3 <- base::as.factor(sampleMetadata$sex_3)
+
+variableMetadata <- read_excel(
+  "~/projekt_data/2019-03-11_VIPVIZA-ITC_data/14766.xlsx",
+  sheet = "variableMetadata"
+)
+variableMetadata <- as.data.frame(variableMetadata)
+
+# Clean data:
+sampleMetadata <- sampleMetadata %>%
+  dplyr::mutate(bmi_3 = vikt_3 / (Height * 0.01 * Height * 0.01)) %>%
+  dplyr::mutate(age_3 = alder_0 + 3) %>%
+  dplyr::select(-c(alder_0))
+
+variableMetadata <- variableMetadata %>%
+  dplyr::add_row(
+    variableName = "bmi_3",
+    unit = "kg/m2",
+    platform = "clinical",
+    alternativeName1 = "BMI",
+    alternativeName2 = "Body mass index"
+  )
+
+variableMetadata$variableName[variableMetadata$variableName == "alder_0"] <- "age_3"
+variableMetadata$alternativeName1[variableMetadata$alternativeName1 == "alder_0"] <- "age_3"
+
+# Remove irrelevant variables
+dataMatrix <- dataMatrix %>%
+  dplyr::select(-c(Glc, Lac, Cit, Ala, Gln, His, Ile, Leu, Val, Phe, Tyr, Ace, AcAce, bOHBut, Crea, Alb, Gp))
+
+variableMetadata <- variableMetadata %>%
+  dplyr::filter(variableName != "Glc") %>%
+  dplyr::filter(variableName != "Lac") %>%
+  dplyr::filter(variableName != "Cit") %>%
+  dplyr::filter(variableName != "Ala") %>%
+  dplyr::filter(variableName != "Gln") %>%
+  dplyr::filter(variableName != "His") %>%
+  dplyr::filter(variableName != "Ile") %>%
+  dplyr::filter(variableName != "Leu") %>%
+  dplyr::filter(variableName != "Val") %>%
+  dplyr::filter(variableName != "Phe") %>%
+  dplyr::filter(variableName != "Tyr") %>%
+  dplyr::filter(variableName != "Ace") %>%
+  dplyr::filter(variableName != "AcAce") %>%
+  dplyr::filter(variableName != "bOHBut") %>%
+  dplyr::filter(variableName != "Crea") %>%
+  dplyr::filter(variableName != "Alb") %>%
+  dplyr::filter(variableName != "Gp")
+
+# DF:s for REAMDE.rmd
+unproc_samplemeta <- sampleMetadata 
+unproc_datamatrix <- dataMatrix
+
+# Set unfeasible outliers in sampleMetadata as NA
+sampleMetadata[31,]$hdl_3 <- NA
+
+sampleMetadata[114,]$ANGPTL4 <- NA
+sampleMetadata[18,]$ANGPTL8 <- NA
+
+sampleMetadata[64,]$APOC1 <- NA
+
+# Impute missing values for sample metadata
+tempData <- sampleMetadata %>%
+  dplyr::select(-c(ID, ITC))
+tempData2a <- sampleMetadata %>%
+  dplyr::select(c(ID))
+tempData2b <- sampleMetadata %>%
+  dplyr::select(c(ITC))
+
+tempData3 <- mice::mice(tempData, m = 5, maxit = 50, method = "pmm", seed = 500)
+tempData4 <- mice::complete(tempData3)
+
+missData.sampleMetadata <- cbind(tempData2a, tempData4)
+missData.sampleMetadata <- cbind(missData.sampleMetadata, tempData2b)
+
+# Omit missing rows in NMR data
+missData.dataMatrix <- stats::na.omit(dataMatrix)

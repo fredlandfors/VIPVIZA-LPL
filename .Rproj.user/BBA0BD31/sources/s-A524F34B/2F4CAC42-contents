@@ -1,0 +1,131 @@
+---
+title: "VIPVIZA-LPL"
+output:
+  github_document:
+    toc: true
+    toc_depth: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Clear environment:
+```{r clearenvironment}
+rm(list = ls())
+```
+
+Session info:
+```{r}
+sessionInfo()
+```
+
+```{r, include=FALSE}
+# Load data (hard coded path):
+load("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/vipviza_rdat.RData")
+```
+
+# Analysis output
+
+## Figure 1
+
+## Figure 2
+
+## Table 1
+
+## Table S1
+
+## Table S2
+
+## Sensitivity analysis
+
+# Preprocessing
+## NMR
+### A. Pre-imputation diagnostics
+
+```{r}
+dim(unproc_samplemeta)
+tempData_samplemeta$data$percent_missing
+tempData_samplemeta$plots$vismissplot
+```
+
+### B. Post-imputation diagnostics
+
+```{r}
+tempData_samplemeta$plots$scatter
+tempData_samplemeta$plots$density
+```
+
+### C. Outlier analysis
+
+PCA
+
+```{r}
+plot_pca(
+  Filter(is.numeric, missData.dataMatrix),
+  c = missData.dataMatrix["ID"] 
+)$scores_plot
+
+plot_pca(
+  Filter(is.numeric, missData.dataMatrix),
+  c = missData.dataMatrix["ID"] 
+)$loadings_plot
+```
+
+
+Column-wise boxplot
+
+```{r}
+geom_cwiseboxplot(
+  x = Filter(is.numeric, missData.dataMatrix),
+  c = missData.dataMatrix[,"ID"]
+)
+```
+
+## Sample metadata
+### A. Pre-imputation diagnostics
+
+```{r}
+dim(unproc_samplemeta)
+tempData_samplemeta$data$percent_missing
+tempData_samplemeta$plots$vismissplot
+```
+
+### B. Post-imputation diagnostics
+
+```{r}
+tempData_samplemeta$plots$scatter
+tempData_samplemeta$plots$density
+```
+
+### C. Outlier analysis
+
+PCA
+
+```{r}
+plot_pca(
+  Filter(is.numeric, missData.sampleMetadata),
+  c = missData.sampleMetadata["ID"] 
+)$scores_plot
+
+plot_pca(
+  Filter(is.numeric, missData.sampleMetadata),
+  c = missData.sampleMetadata["ID"] 
+)$loadings_plot
+
+plot_pca(
+  Filter(is.numeric, missData.sampleMetadata),
+  c = missData.sampleMetadata["ID"] 
+)$fit
+```
+
+Column-wise boxplot
+
+```{r}
+geom_cwiseboxplot(
+  x = Filter(is.numeric, missData.sampleMetadata),
+  c = missData.sampleMetadata[,"ID"]
+)
+```

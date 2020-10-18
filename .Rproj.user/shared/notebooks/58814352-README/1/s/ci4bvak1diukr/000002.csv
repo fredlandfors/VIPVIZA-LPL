@@ -1,0 +1,4 @@
+"0","outlierIdentifier.dataMatrix <- outlierAnalysis.dataMatrix %>%"
+"0","  dplyr::select(c(outlier.dataMatrix, ID))"
+"0",""
+"0","outlierIdentifier.dataMatrix <- merge(dataMatrix, outlierIdentifier.dataMatrix, by=""ID"")"

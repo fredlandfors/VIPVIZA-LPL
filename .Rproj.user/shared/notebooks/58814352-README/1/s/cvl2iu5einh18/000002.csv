@@ -1,0 +1,1 @@
+"0","pMiss <- function(x){sum(base::is.na(x))/length(x)*100} #percent missing values function "

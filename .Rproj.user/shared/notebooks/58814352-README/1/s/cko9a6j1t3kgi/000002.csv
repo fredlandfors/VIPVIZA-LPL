@@ -1,0 +1,8 @@
+"0","ggplot(data=lmData.out2, aes(x=stats::reorder(biomarkerName, beta), y=beta, ymin=lower95, ymax=higher95)) +"
+"0","  geom_pointrange() + "
+"0","  geom_hline(yintercept=0, lty=2) +  # add a dotted line at x=0 after flip"
+"0","  coord_flip() +  # flip coordinates (puts labels on y axis)"
+"0","  xlab("""") +"
+"0","  ylab(""SD change in lipoprotein hydrolyzability capacity (determined \n by ITC) per 1-SD increase in x-variable concentration"") +"
+"0","  ylim(-1, 1) +"
+"0","  theme_classic()  # use a white background"

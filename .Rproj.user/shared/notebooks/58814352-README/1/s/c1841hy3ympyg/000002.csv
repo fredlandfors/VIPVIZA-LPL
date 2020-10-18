@@ -1,0 +1,13 @@
+"0","#get data and export to excel to edit order. this is done faster manually in excel and doesn't affect output other than the plot order at all."
+"0","forestplotData <- lmData.out %>%"
+"0","  dplyr::rename(variableName = biomarkerName)"
+"0",""
+"0","forestplotData <- left_join(x = forestplotData,"
+"0","                            y = variableMetadata,"
+"0","                            by = ""variableName"")"
+"0",""
+"0","#write_excel_csv2(forestplotData, path = ""output/forestplotData_out.csv"")"
+"0",""
+"0","forestplotData_plotORDER <- read_excel(""data/forestplotData_plotOrder.xlsx"") #import plotORDER"
+"2","Error: `path` does not exist: ‘data/forestplotData_plotOrder.xlsx’
+"
