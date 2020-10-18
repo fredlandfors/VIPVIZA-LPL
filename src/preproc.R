@@ -135,5 +135,5 @@ fullData <- dplyr::inner_join(
   by = 'ID'
 )
 
-# Save session data to file
+# Save environment data to file
 save.image("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/preproc.RData")

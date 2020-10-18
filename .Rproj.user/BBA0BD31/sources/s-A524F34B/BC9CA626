@@ -3,14 +3,14 @@
     "path": "~/Library/Mobile Documents/com~apple~CloudDocs/realSkrivbord/projekt/VIPVIZA-LPL/src/src_master.R",
     "project_path": "src/src_master.R",
     "type": "r_source",
-    "hash": "670288492",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1602508396745.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
-        "cursorPosition": "4,9",
+        "cursorPosition": "59,0",
         "scrollLine": "31"
     },
     "folds": "",
@@ -18,7 +18,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1603033588973,
+    "last_content_update": 1603040362641,
     "read_only": false,
     "read_only_alternatives": []
 }

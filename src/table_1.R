@@ -47,3 +47,9 @@ table_1[3, 3] <-  ""
   
 table_1[4, 2] <- paste0("  ", table_1[4, 3])
 table_1[4, 3] <-  ""
+
+# Write to xlsx
+writexl::write_xlsx(
+  table_1,
+  path = "./out/table_1.xlsx"
+)
