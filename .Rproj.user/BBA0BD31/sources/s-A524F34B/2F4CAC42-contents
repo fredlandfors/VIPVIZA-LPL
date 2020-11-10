@@ -13,13 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Clear environment:
-```{r clearenvironment}
+```{r clearenvironment, include=FALSE}
 rm(list = ls())
-```
-
-Session info:
-```{r}
-sessionInfo()
 ```
 
 ```{r, include=FALSE}
@@ -33,11 +28,23 @@ library(ggplot2)
 
 ## Figure 1. Scatter plots, LPL control proteins
 
-[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure1.pdf)
+[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
+
+Thumbnail:
+```{r}
+figure_1_ggdraw
+```
+
 
 ## Figure 2. NMR heatmap, forest plot and bar plot
 
-[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure2.pdf)
+[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
+
+Thumbnail:
+```{r}
+figure_22
+```
+
 
 ## Table 1. Descriptive statistics, study participants.
 
@@ -134,4 +141,9 @@ geom_cwiseboxplot(
   x = Filter(is.numeric, missData.sampleMetadata),
   c = missData.sampleMetadata[,"ID"]
 )
+```
+
+## Session info:
+```{r}
+sessionInfo()
 ```

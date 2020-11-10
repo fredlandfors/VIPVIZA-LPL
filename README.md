@@ -24,50 +24,37 @@ VIPVIZA-LPL
           - [B. Post-imputation
             diagnostics](#b.-post-imputation-diagnostics-1)
           - [C. Outlier analysis](#c.-outlier-analysis-1)
+      - [Session info:](#session-info)
 
 Clear environment:
-
-``` r
-rm(list = ls())
-```
-
-Session info:
-
-``` r
-sessionInfo()
-```
-
-    ## R version 4.0.2 (2020-06-22)
-    ## Platform: x86_64-apple-darwin17.0 (64-bit)
-    ## Running under: macOS Catalina 10.15.4
-    ## 
-    ## Matrix products: default
-    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-    ## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
-    ## 
-    ## locale:
-    ## [1] sv_SE.UTF-8/sv_SE.UTF-8/sv_SE.UTF-8/C/sv_SE.UTF-8/sv_SE.UTF-8
-    ## 
-    ## attached base packages:
-    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
-    ## 
-    ## loaded via a namespace (and not attached):
-    ##  [1] compiler_4.0.2  magrittr_1.5    tools_4.0.2     htmltools_0.5.0
-    ##  [5] yaml_2.2.1      stringi_1.4.6   rmarkdown_2.3   knitr_1.29     
-    ##  [9] stringr_1.4.0   xfun_0.16       digest_0.6.25   rlang_0.4.7    
-    ## [13] evaluate_0.14
 
 # Analysis output
 
 ## Figure 1. Scatter plots, LPL control proteins
 
 [Click here to download high-resolution
-version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure1.pdf)
+version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
+
+Thumbnail:
+
+``` r
+figure_1_ggdraw
+```
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ## Figure 2. NMR heatmap, forest plot and bar plot
 
 [Click here to download high-resolution
-version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure2.pdf)
+version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
+
+Thumbnail:
+
+``` r
+figure_22
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## Table 1. Descriptive statistics, study participants.
 
@@ -106,7 +93,7 @@ tempData_samplemeta$data$percent_missing
 tempData_samplemeta$plots$vismissplot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
@@ -133,7 +120,7 @@ plot_pca(
 )$scores_plot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 plot_pca(
@@ -142,7 +129,7 @@ plot_pca(
 )$loadings_plot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 Column-wise boxplot
 
@@ -153,7 +140,7 @@ geom_cwiseboxplot(
 )
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ## Sample metadata
 
@@ -180,7 +167,7 @@ tempData_samplemeta$data$percent_missing
 tempData_samplemeta$plots$vismissplot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
@@ -207,7 +194,7 @@ plot_pca(
 )$scores_plot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 plot_pca(
@@ -216,7 +203,7 @@ plot_pca(
 )$loadings_plot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
 ``` r
 plot_pca(
@@ -330,4 +317,49 @@ geom_cwiseboxplot(
     
     ## Warning: Removed 3 rows containing non-finite values (stat_boxplot).
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+## Session info:
+
+``` r
+sessionInfo()
+```
+
+    ## R version 4.0.2 (2020-06-22)
+    ## Platform: x86_64-apple-darwin17.0 (64-bit)
+    ## Running under: macOS Catalina 10.15.4
+    ## 
+    ## Matrix products: default
+    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+    ## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+    ## 
+    ## locale:
+    ## [1] sv_SE.UTF-8/sv_SE.UTF-8/sv_SE.UTF-8/C/sv_SE.UTF-8/sv_SE.UTF-8
+    ## 
+    ## attached base packages:
+    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
+    ## 
+    ## other attached packages:
+    ## [1] ggplot2_3.3.2
+    ## 
+    ## loaded via a namespace (and not attached):
+    ##  [1] ComplexHeatmap_2.5.5 Rcpp_1.0.5           RColorBrewer_1.1-2  
+    ##  [4] pillar_1.4.6         compiler_4.0.2       tools_4.0.2         
+    ##  [7] digest_0.6.25        clue_0.3-57          evaluate_0.14       
+    ## [10] lifecycle_0.2.0      tibble_3.0.3         gtable_0.3.0        
+    ## [13] lattice_0.20-41      png_0.1-7            pkgconfig_2.0.3     
+    ## [16] rlang_0.4.7          parallel_4.0.2       yaml_2.2.1          
+    ## [19] xfun_0.16            withr_2.2.0          cluster_2.1.0       
+    ## [22] dplyr_1.0.2          stringr_1.4.0        knitr_1.29          
+    ## [25] S4Vectors_0.26.1     IRanges_2.22.2       GlobalOptions_0.1.2 
+    ## [28] generics_0.0.2       vctrs_0.3.4          stats4_4.0.2        
+    ## [31] grid_4.0.2           tidyselect_1.1.0     cowplot_1.0.0       
+    ## [34] glue_1.4.2           mice_3.11.0          R6_2.4.1            
+    ## [37] GetoptLong_1.0.2     rmarkdown_2.3        farver_2.0.3        
+    ## [40] purrr_0.3.4          tidyr_1.1.2          magrittr_1.5        
+    ## [43] MASS_7.3-52          BiocGenerics_0.34.0  scales_1.1.1        
+    ## [46] backports_1.1.9      ellipsis_0.3.1       htmltools_0.5.0     
+    ## [49] visdat_0.5.3         shape_1.4.4          circlize_0.4.10     
+    ## [52] colorspace_1.4-1     labeling_0.3         stringi_1.4.6       
+    ## [55] munsell_0.5.0        broom_0.7.0          rjson_0.2.20        
+    ## [58] crayon_1.3.4
