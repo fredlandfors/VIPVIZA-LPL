@@ -58,6 +58,8 @@ figure_22
 ## NMR
 ### A. Pre-imputation diagnostics
 
+Percent missing:
+
 ```{r}
 dim(unproc_samplemeta)
 tempdata_dataMatrix$data$percent_missing

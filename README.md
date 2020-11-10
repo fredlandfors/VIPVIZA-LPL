@@ -60,6 +60,8 @@ file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xls
 
 ### A. Pre-imputation diagnostics
 
+Percent missing:
+
     ## [1] 117  22
 
     ##          ID    M_VLDL_P    M_VLDL_L   M_VLDL_PL    M_VLDL_C   M_VLDL_CE 
