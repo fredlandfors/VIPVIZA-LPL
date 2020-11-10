@@ -31,7 +31,7 @@ library(ggplot2)
 [Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
 
 Thumbnail:
-```{r}
+```{r echo=FALSE}
 figure_1_ggdraw
 ```
 
@@ -41,7 +41,7 @@ figure_1_ggdraw
 [Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
 
 Thumbnail:
-```{r}
+```{r echo=FALSE}
 figure_22
 ```
 
@@ -127,11 +127,6 @@ plot_pca(
   Filter(is.numeric, na.omit(missData.sampleMetadata)),
   c = na.omit(missData.sampleMetadata)["ID"]
 )$loadings_plot
-
-plot_pca(
-  Filter(is.numeric, na.omit(missData.sampleMetadata)),
-  c = na.omit(missData.sampleMetadata)["ID"]
-)$fit
 ```
 
 Column-wise boxplot
