@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 ```
 
 Clear environment:
@@ -101,15 +101,14 @@ geom_cwiseboxplot(
 
 ```{r}
 dim(unproc_samplemeta)
-tempData_samplemeta$data$percent_missing
 tempData_samplemeta$plots$vismissplot
 ```
 
 ### B. Post-imputation diagnostics
 
 ```{r}
-tempData_samplemeta$plots$scatter
-tempData_samplemeta$plots$density
+tempData_samplemeta$plots$mice_stripplot
+tempData_samplemeta$plots$mice_density
 ```
 
 ### C. Outlier analysis

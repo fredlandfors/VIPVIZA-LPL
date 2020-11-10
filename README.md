@@ -66,13 +66,7 @@ file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xls
 
 ### B. Post-imputation diagnostics
 
-    ## Warning: Removed 58 rows containing missing values (geom_point).
-
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-    ## Warning: Removed 58 rows containing non-finite values (stat_density).
-
-![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 ### C. Outlier analysis
 
@@ -90,20 +84,11 @@ Column-wise boxplot:
 
     ## [1] 117  22
 
-    ##        ID     sex_3    Height   ANGPTL3     APOC2     APOC3     APOA5       ITC 
-    ## 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 
-    ##     age_3   ANGPTL4   ANGPTL8     APOC1    vikt_3    skol_3     stg_3  blods0_3 
-    ## 0.0000000 0.8547009 0.8547009 0.8547009 2.5641026 2.5641026 2.5641026 2.5641026 
-    ##     sbt_3     dbt_3     bmi_3   midja_3     hdl_3     ldl_3 
-    ## 2.5641026 2.5641026 2.5641026 3.4188034 3.4188034 4.2735043
-
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
-    ## NULL
-
-    ## NULL
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
 
 ### C. Outlier analysis
 
@@ -112,10 +97,6 @@ PCA:
 ![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
 Column-wise boxplot:
-
-    ## Warning: Removed 3 rows containing non-finite values (stat_boxplot).
-    
-    ## Warning: Removed 3 rows containing non-finite values (stat_boxplot).
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
