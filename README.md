@@ -3,14 +3,14 @@ VIPVIZA-LPL
 
   - [Analysis](#analysis)
       - [Figure 1. Scatter plots, LPL control
-        proteins](#figure-1.-scatter-plots-lpl-control-proteins)
+        proteins.](#figure-1.-scatter-plots-lpl-control-proteins.)
       - [Figure 2. NMR heatmap, forest plot and bar
-        plot](#figure-2.-nmr-heatmap-forest-plot-and-bar-plot)
+        plot.](#figure-2.-nmr-heatmap-forest-plot-and-bar-plot.)
       - [Table 1. Descriptive statistics, study
         participants.](#table-1.-descriptive-statistics-study-participants.)
       - [Table S1-2. NMR summary stats (S1) and linear regression
         results
-        (S2)](#table-s1-2.-nmr-summary-stats-s1-and-linear-regression-results-s2)
+        (S2).](#table-s1-2.-nmr-summary-stats-s1-and-linear-regression-results-s2.)
   - [Preprocessing](#preprocessing)
       - [NMR](#nmr)
           - [A. Pre-imputation
@@ -30,14 +30,14 @@ Clear environment:
 
 # Analysis
 
-## Figure 1. Scatter plots, LPL control proteins
+## Figure 1. Scatter plots, LPL control proteins.
 
 [Click here to download high-resolution
 version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
 
 Thumbnail: ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
-## Figure 2. NMR heatmap, forest plot and bar plot
+## Figure 2. NMR heatmap, forest plot and bar plot.
 
 [Click here to download high-resolution
 version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
@@ -49,7 +49,7 @@ Thumbnail: ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 [Click here to download xlsx
 file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_1.xlsx)
 
-## Table S1-2. NMR summary stats (S1) and linear regression results (S2)
+## Table S1-2. NMR summary stats (S1) and linear regression results (S2).
 
 [Click here to download xlsx
 file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xlsx)
@@ -61,6 +61,55 @@ file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xls
 ### A. Pre-imputation diagnostics
 
     ## [1] 117  22
+
+    ##          ID    M_VLDL_P    M_VLDL_L   M_VLDL_PL    M_VLDL_C   M_VLDL_CE 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##   M_VLDL_FC   M_VLDL_TG    S_VLDL_P    S_VLDL_L   S_VLDL_PL    S_VLDL_C 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##   S_VLDL_CE   S_VLDL_FC   S_VLDL_TG   XS_VLDL_P   XS_VLDL_L  XS_VLDL_PL 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##   XS_VLDL_C  XS_VLDL_CE  XS_VLDL_FC  XS_VLDL_TG       IDL_P       IDL_L 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##      IDL_PL       IDL_C      IDL_CE      IDL_FC      IDL_TG     L_LDL_P 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##     L_LDL_L    L_LDL_PL     L_LDL_C    L_LDL_CE    L_LDL_FC    L_LDL_TG 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##     M_LDL_P     M_LDL_L    M_LDL_PL     M_LDL_C    M_LDL_FC    M_LDL_TG 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##    XL_HDL_P    XL_HDL_L   XL_HDL_PL    XL_HDL_C   XL_HDL_CE   XL_HDL_FC 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##   XL_HDL_TG     M_HDL_P     M_HDL_L    M_HDL_PL     M_HDL_C    M_HDL_CE 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##    M_HDL_FC    M_HDL_TG     S_HDL_P     S_HDL_L    S_HDL_PL     S_HDL_C 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##    S_HDL_CE    S_HDL_FC    S_HDL_TG      VLDL_D       LDL_D       HDL_D 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##     Serum_C      VLDL_C   Remnant_C       LDL_C       HDL_C      HDL2_C 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##      HDL3_C        EstC       FreeC    Serum_TG     VLDL_TG      LDL_TG 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##      HDL_TG       TotPG       TG_PG          PC          SM      TotCho 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##       ApoA1        ApoB  ApoB_ApoA1       TotFA       UnSat         DHA 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##          LA        FAw3        FAw6        PUFA        MUFA         SFA 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##      DHA_FA       LA_FA     FAw3_FA     FAw6_FA     PUFA_FA     MUFA_FA 
+    ##   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000   0.0000000 
+    ##      SFA_FA    L_VLDL_P    L_VLDL_L   L_VLDL_PL    L_VLDL_C   L_VLDL_CE 
+    ##   0.0000000   0.9090909   0.9090909   0.9090909   0.9090909   0.9090909 
+    ##   L_VLDL_FC   L_VLDL_TG    M_LDL_CE     S_LDL_P     S_LDL_L    S_LDL_PL 
+    ##   0.9090909   0.9090909   0.9090909   0.9090909   0.9090909   0.9090909 
+    ##     S_LDL_C    S_LDL_CE    S_LDL_FC    S_LDL_TG  XXL_VLDL_P  XXL_VLDL_L 
+    ##   0.9090909   0.9090909   0.9090909   0.9090909   1.8181818   1.8181818 
+    ## XXL_VLDL_PL  XXL_VLDL_C XXL_VLDL_CE XXL_VLDL_FC XXL_VLDL_TG   XL_VLDL_P 
+    ##   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818 
+    ##   XL_VLDL_L  XL_VLDL_PL   XL_VLDL_C  XL_VLDL_CE  XL_VLDL_TG     L_HDL_P 
+    ##   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818 
+    ##     L_HDL_L    L_HDL_PL     L_HDL_C    L_HDL_CE    L_HDL_FC    L_HDL_TG 
+    ##   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818   1.8181818 
+    ##  XL_VLDL_FC 
+    ##   2.7272727
 
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 

@@ -26,7 +26,7 @@ library(ggplot2)
 
 # Analysis
 
-## Figure 1. Scatter plots, LPL control proteins
+## Figure 1. Scatter plots, LPL control proteins.
 
 [Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
 
@@ -36,7 +36,7 @@ figure_1_ggdraw
 ```
 
 
-## Figure 2. NMR heatmap, forest plot and bar plot
+## Figure 2. NMR heatmap, forest plot and bar plot.
 
 [Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
 
@@ -50,7 +50,7 @@ figure_22
 
 [Click here to download xlsx file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_1.xlsx)
 
-## Table S1-2. NMR summary stats (S1) and linear regression results (S2)
+## Table S1-2. NMR summary stats (S1) and linear regression results (S2).
 
 [Click here to download xlsx file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xlsx)
 
@@ -60,6 +60,7 @@ figure_22
 
 ```{r}
 dim(unproc_samplemeta)
+tempdata_dataMatrix$data$percent_missing
 tempdata_dataMatrix$plots$vismissplot
 ```
 
