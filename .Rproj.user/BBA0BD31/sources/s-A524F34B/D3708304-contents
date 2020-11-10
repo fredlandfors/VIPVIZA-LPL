@@ -123,7 +123,7 @@ missData.sampleMetadata <- tempData_samplemeta$data$mice_data_out
 tempdata_dataMatrix <- impute_by_LCMD(
   dataMatrix,
   include_vars = names(Filter(is.numeric, dataMatrix)),
-  method = "QRILC"
+  method = "MinDet"
 )
 
 missData.dataMatrix <- tempdata_dataMatrix$data$data_out

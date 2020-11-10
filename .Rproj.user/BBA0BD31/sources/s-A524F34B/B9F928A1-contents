@@ -1,7 +1,7 @@
 # Table 1: Descriptive stats
 check_packages(
   bioc_packages = c(),
-  cran_packages = c("kableExtra")
+  cran_packages = c("xtable")
 )
 
 # Get vars
@@ -33,7 +33,7 @@ names_table_1 <- subset(
 # Make table
 table_1 <- mk_descstats_table(
   sampleMetadata[vars_table_1],
-  n_digits = 4,
+  n_digits = 3,
   use_var_metadata = TRUE,
   old_names = names_table_1$variableName,
   new_names = names_table_1$alternativeName2,
@@ -52,4 +52,11 @@ table_1[4, 3] <-  ""
 writexl::write_xlsx(
   table_1,
   path = "./out/table_1.xlsx"
+)
+
+# Write to LaTeX
+print(
+  xtable::xtable(table_1),
+  file = "./out/table_1_latex/xtable_1.tex",
+  include.rownames = FALSE
 )

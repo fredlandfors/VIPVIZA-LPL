@@ -54,6 +54,10 @@ source(file = "./src/preproc.R")
 
 # Functions
 source(file = "./src/func/mk_descstats_table.R")
+source(file = "./src/func/calc_forest.R")
 
 # Source output scripts
 source(file = "./src/table1.R")
+source(file = "./src/figure_1.R")
+source(file = "./src/figure_2.R")
+source(file = "./src/figure_S1-2.R")
