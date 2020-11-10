@@ -1,7 +1,7 @@
 # figure 22
 check_packages(
   bioc_packages = c(),
-  cran_packages = c("pls", "wesanderson", "ggrepel", "Hmisc")
+  cran_packages = c("Hmisc", "cowplot")
 )
 
 # Get data

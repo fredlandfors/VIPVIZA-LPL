@@ -23,23 +23,29 @@ sessionInfo()
 ```
 
 ```{r, include=FALSE}
-# Load data (hard coded path):
-load("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/vipviza_rdat.RData")
+# Load data (hard coded file path):
+load("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/markdown.RData")
+# Library
+library(ggplot2)
 ```
 
 # Analysis output
 
-## Figure 1
+## Figure 1. Scatter plots, LPL control proteins
 
-## Figure 2
+[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure1.pdf)
 
-## Table 1
+## Figure 2. NMR heatmap, forest plot and bar plot
 
-## Table S1
+[Click here to download high-resolution version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure2.pdf)
 
-## Table S2
+## Table 1. Descriptive statistics, study participants.
 
-## Sensitivity analysis
+[Click here to download xlsx file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_1.xlsx)
+
+## Table S1-2. NMR summary stats (S1) and linear regression results (S2)
+
+[Click here to download xlsx file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xlsx)
 
 # Preprocessing
 ## NMR
@@ -106,18 +112,18 @@ PCA
 
 ```{r}
 plot_pca(
-  Filter(is.numeric, missData.sampleMetadata),
-  c = missData.sampleMetadata["ID"] 
+  Filter(is.numeric, na.omit(missData.sampleMetadata)),
+  c = na.omit(missData.sampleMetadata)["ID"]
 )$scores_plot
 
 plot_pca(
-  Filter(is.numeric, missData.sampleMetadata),
-  c = missData.sampleMetadata["ID"] 
+  Filter(is.numeric, na.omit(missData.sampleMetadata)),
+  c = na.omit(missData.sampleMetadata)["ID"]
 )$loadings_plot
 
 plot_pca(
-  Filter(is.numeric, missData.sampleMetadata),
-  c = missData.sampleMetadata["ID"] 
+  Filter(is.numeric, na.omit(missData.sampleMetadata)),
+  c = na.omit(missData.sampleMetadata)["ID"]
 )$fit
 ```
 

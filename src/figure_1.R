@@ -1,7 +1,7 @@
 # Figure 1
 check_packages(
   bioc_packages = c(""),
-  cran_packages = c("ggstatsplot", "correlation")
+  cran_packages = c("ggstatsplot", "cowplot")
 )
 
 # Get data

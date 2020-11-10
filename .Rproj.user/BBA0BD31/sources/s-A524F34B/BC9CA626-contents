@@ -57,7 +57,10 @@ source(file = "./src/func/mk_descstats_table.R")
 source(file = "./src/func/calc_forest.R")
 
 # Source output scripts
-source(file = "./src/table1.R")
+source(file = "./src/table_1.R")
 source(file = "./src/figure_1.R")
 source(file = "./src/figure_2.R")
-source(file = "./src/figure_S1-2.R")
+source(file = "./src/table_S1-2.R")
+
+# Save data environment for markdown
+save.image("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/markdown.RData")

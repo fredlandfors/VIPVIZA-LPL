@@ -3,7 +3,7 @@
     "path": "~/Library/Mobile Documents/com~apple~CloudDocs/realSkrivbord/projekt/VIPVIZA-LPL/src/figure_2.R",
     "project_path": "src/figure_2.R",
     "type": "r_source",
-    "hash": "3682688531",
+    "hash": "3046699344",
     "contents": "",
     "dirty": false,
     "created": 1604933280231.0,
@@ -11,15 +11,15 @@
     "relative_order": 6,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "217,50",
-        "scrollLine": "198"
+        "cursorPosition": "3,37",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1604945720,
+    "lastKnownWriteTime": 1605003872,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1605003027128,
+    "last_content_update": 1605003872517,
     "read_only": false,
     "read_only_alternatives": []
 }
