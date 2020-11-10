@@ -26,8 +26,6 @@ VIPVIZA-LPL
           - [C. Outlier analysis](#c.-outlier-analysis-1)
   - [Session info](#session-info)
 
-Clear environment:
-
 # Analysis
 
 ## Figure 1. Scatter plots, LPL control proteins.
