@@ -3,7 +3,7 @@
     "path": "~/Library/Mobile Documents/com~apple~CloudDocs/realSkrivbord/projekt/VIPVIZA-LPL/README.Rmd",
     "project_path": "README.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "2611670515",
     "contents": "",
     "dirty": false,
     "created": 1602246974789.0,
@@ -11,17 +11,17 @@
     "relative_order": 1,
     "properties": {
         "tempName": "Untitled2",
-        "cursorPosition": "26,10",
-        "scrollLine": "24",
+        "cursorPosition": "98,0",
+        "scrollLine": "96",
         "last_setup_crc32": "A524F34Bbb338d19",
         "chunk_output_type": "console"
     },
     "folds": "",
-    "lastKnownWriteTime": 1605005875,
+    "lastKnownWriteTime": 1605006064,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1605005875434,
+    "last_content_update": 1605006112201,
     "read_only": false,
     "read_only_alternatives": []
 }

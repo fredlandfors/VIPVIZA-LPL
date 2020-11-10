@@ -62,20 +62,17 @@ file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xls
 
     ## [1] 117  22
 
-    ##        ID     sex_3    Height   ANGPTL3     APOC2     APOC3     APOA5       ITC 
-    ## 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 
-    ##     age_3   ANGPTL4   ANGPTL8     APOC1    vikt_3    skol_3     stg_3  blods0_3 
-    ## 0.0000000 0.8547009 0.8547009 0.8547009 2.5641026 2.5641026 2.5641026 2.5641026 
-    ##     sbt_3     dbt_3     bmi_3   midja_3     hdl_3     ldl_3 
-    ## 2.5641026 2.5641026 2.5641026 3.4188034 3.4188034 4.2735043
-
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
-    ## NULL
+    ## Warning: Removed 58 rows containing missing values (geom_point).
 
-    ## NULL
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+    ## Warning: Removed 58 rows containing non-finite values (stat_density).
+
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
 ### C. Outlier analysis
 

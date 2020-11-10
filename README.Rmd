@@ -60,15 +60,14 @@ figure_22
 
 ```{r}
 dim(unproc_samplemeta)
-tempData_samplemeta$data$percent_missing
-tempData_samplemeta$plots$vismissplot
+tempdata_dataMatrix$plots$vismissplot
 ```
 
 ### B. Post-imputation diagnostics
 
 ```{r}
-tempData_samplemeta$plots$scatter
-tempData_samplemeta$plots$density
+tempdata_dataMatrix$plots$scatter
+tempdata_dataMatrix$plots$density
 ```
 
 ### C. Outlier analysis
