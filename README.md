@@ -1,7 +1,7 @@
 VIPVIZA-LPL
 ================
 
-  - [Analysis output](#analysis-output)
+  - [Analysis](#analysis)
       - [Figure 1. Scatter plots, LPL control
         proteins](#figure-1.-scatter-plots-lpl-control-proteins)
       - [Figure 2. NMR heatmap, forest plot and bar
@@ -24,11 +24,11 @@ VIPVIZA-LPL
           - [B. Post-imputation
             diagnostics](#b.-post-imputation-diagnostics-1)
           - [C. Outlier analysis](#c.-outlier-analysis-1)
-      - [Session info:](#session-info)
+  - [Session info](#session-info)
 
 Clear environment:
 
-# Analysis output
+# Analysis
 
 ## Figure 1. Scatter plots, LPL control proteins
 
@@ -60,15 +60,7 @@ file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xls
 
 ### A. Pre-imputation diagnostics
 
-``` r
-dim(unproc_samplemeta)
-```
-
     ## [1] 117  22
-
-``` r
-tempData_samplemeta$data$percent_missing
-```
 
     ##        ID     sex_3    Height   ANGPTL3     APOC2     APOC3     APOA5       ITC 
     ## 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 
@@ -77,56 +69,21 @@ tempData_samplemeta$data$percent_missing
     ##     sbt_3     dbt_3     bmi_3   midja_3     hdl_3     ldl_3 
     ## 2.5641026 2.5641026 2.5641026 3.4188034 3.4188034 4.2735043
 
-``` r
-tempData_samplemeta$plots$vismissplot
-```
-
 ![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
-``` r
-tempData_samplemeta$plots$scatter
-```
-
     ## NULL
-
-``` r
-tempData_samplemeta$plots$density
-```
 
     ## NULL
 
 ### C. Outlier analysis
 
-PCA
+PCA:
 
-``` r
-plot_pca(
-  Filter(is.numeric, missData.dataMatrix),
-  c = missData.dataMatrix["ID"] 
-)$scores_plot
-```
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-
-``` r
-plot_pca(
-  Filter(is.numeric, missData.dataMatrix),
-  c = missData.dataMatrix["ID"] 
-)$loadings_plot
-```
-
-![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
-
-Column-wise boxplot
-
-``` r
-geom_cwiseboxplot(
-  x = Filter(is.numeric, missData.dataMatrix),
-  c = missData.dataMatrix[,"ID"]
-)
-```
+Column-wise boxplot:
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
@@ -134,15 +91,7 @@ geom_cwiseboxplot(
 
 ### A. Pre-imputation diagnostics
 
-``` r
-dim(unproc_samplemeta)
-```
-
     ## [1] 117  22
-
-``` r
-tempData_samplemeta$data$percent_missing
-```
 
     ##        ID     sex_3    Height   ANGPTL3     APOC2     APOC3     APOA5       ITC 
     ## 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 
@@ -151,56 +100,21 @@ tempData_samplemeta$data$percent_missing
     ##     sbt_3     dbt_3     bmi_3   midja_3     hdl_3     ldl_3 
     ## 2.5641026 2.5641026 2.5641026 3.4188034 3.4188034 4.2735043
 
-``` r
-tempData_samplemeta$plots$vismissplot
-```
-
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ### B. Post-imputation diagnostics
 
-``` r
-tempData_samplemeta$plots$scatter
-```
-
     ## NULL
-
-``` r
-tempData_samplemeta$plots$density
-```
 
     ## NULL
 
 ### C. Outlier analysis
 
-PCA
+PCA:
 
-``` r
-plot_pca(
-  Filter(is.numeric, na.omit(missData.sampleMetadata)),
-  c = na.omit(missData.sampleMetadata)["ID"]
-)$scores_plot
-```
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
-
-``` r
-plot_pca(
-  Filter(is.numeric, na.omit(missData.sampleMetadata)),
-  c = na.omit(missData.sampleMetadata)["ID"]
-)$loadings_plot
-```
-
-![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
-
-Column-wise boxplot
-
-``` r
-geom_cwiseboxplot(
-  x = Filter(is.numeric, missData.sampleMetadata),
-  c = missData.sampleMetadata[,"ID"]
-)
-```
+Column-wise boxplot:
 
     ## Warning: Removed 3 rows containing non-finite values (stat_boxplot).
     
@@ -208,11 +122,7 @@ geom_cwiseboxplot(
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-## Session info:
-
-``` r
-sessionInfo()
-```
+# Session info
 
     ## R version 4.0.2 (2020-06-22)
     ## Platform: x86_64-apple-darwin17.0 (64-bit)

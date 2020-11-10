@@ -9,7 +9,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 Clear environment:
@@ -24,7 +24,7 @@ load("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/markdown.RData")
 library(ggplot2)
 ```
 
-# Analysis output
+# Analysis
 
 ## Figure 1. Scatter plots, LPL control proteins
 
@@ -73,7 +73,7 @@ tempData_samplemeta$plots$density
 
 ### C. Outlier analysis
 
-PCA
+PCA:
 
 ```{r}
 plot_pca(
@@ -88,7 +88,7 @@ plot_pca(
 ```
 
 
-Column-wise boxplot
+Column-wise boxplot:
 
 ```{r}
 geom_cwiseboxplot(
@@ -115,7 +115,7 @@ tempData_samplemeta$plots$density
 
 ### C. Outlier analysis
 
-PCA
+PCA:
 
 ```{r}
 plot_pca(
@@ -129,7 +129,7 @@ plot_pca(
 )$loadings_plot
 ```
 
-Column-wise boxplot
+Column-wise boxplot:
 
 ```{r}
 geom_cwiseboxplot(
@@ -138,7 +138,7 @@ geom_cwiseboxplot(
 )
 ```
 
-## Session info:
+# Session info
 ```{r}
 sessionInfo()
 ```
