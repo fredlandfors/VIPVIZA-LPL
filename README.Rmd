@@ -31,10 +31,9 @@ library(ggplot2)
 
 Percent missing:
 
-```{r, fig.height=7, fig.width=7}
+```{r}
 dim(unproc_samplemeta)
 tempdata_dataMatrix$data$percent_missing
-tempdata_dataMatrix$plots$upsetplot
 ```
 
 ### B. Post-imputation diagnostics
