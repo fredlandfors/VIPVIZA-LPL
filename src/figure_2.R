@@ -1,245 +1,377 @@
-# figure 22
+# Figure 2
 check_packages(
-  bioc_packages = c(),
-  cran_packages = c("Hmisc", "cowplot")
+  bioc_packages = c(""),
+  cran_packages = c("ggstatsplot", "cowplot")
 )
 
-# Get data
-heatmap_data <- merge(
-  missData.sampleMetadata[c("ID", "ITC")],
-  missData.dataMatrix,
-  by = "ID"
-)
+# Get data (Plot order were changed, therefore named "fig_1...") ----
+fig_1_data <- sampleMetadata
 
-heatmap_data <- heatmap_data[
-  # Remove redundant or irrelevant variables
-  !names(heatmap_data) %in%
-    c(
-      "ITC", "ID", "XXL_VLDL_L", "XXL_VLDL_C", "XL_VLDL_L", "XL_VLDL_C",
-      "L_VLDL_L", "L_VLDL_C", "M_VLDL_L", "M_VLDL_C",
-      "S_VLDL_L", "S_VLDL_C", "XS_VLDL_L", "XS_VLDL_C",
-      "IDL_L", "IDL_C", "L_LDL_L", "L_LDL_C",
-      "L_LDL_L", "L_LDL_C", "M_LDL_L", "M_LDL_C",
-      "S_LDL_L", "S_LDL_C", "XL_HDL_L", "XL_HDL_C",
-      "XL_HDL_L", "XL_HDL_C", "L_HDL_L", "L_HDL_C",
-      "M_HDL_L", "M_HDL_C", "S_HDL_L", "S_HDL_C", "Serum_C", "VLDL_C",
-      "Remnant_C", "LDL_C", "HDL_C", "HDL2_C", "HDL3_C", "EstC", "FreeC",
-      "Serum_TG", "VLDL_TG",
-      "LDL_TG", "HDL_TG", "TotCho", "ApoA1",
-      "ApoB", "ApoB_ApoA1"
-    )
-]
+# Wrangle data ----
+fig_1_data$APOA5_log <- log2(fig_1_data$APOA5)
+fig_1_data$APOC1_log <- log2(fig_1_data$APOC1)
+fig_1_data$APOC2_log <- log2(fig_1_data$APOC2)
+fig_1_data$APOC3_log <- log2(fig_1_data$APOC3)
+fig_1_data$ANGPTL3_log <- log2(fig_1_data$ANGPTL3)
+fig_1_data$ANGPTL4_log <- log2(fig_1_data$ANGPTL4)
+fig_1_data$ANGPTL8_log <- log2(fig_1_data$ANGPTL8)
 
-# Calculate correlations
-cor2 <- Hmisc::rcorr(
-  as.matrix(heatmap_data),
-  type = "pearson"
-)
+fig_1_data$APOC1_APOC2 <- log2(fig_1_data$APOC1 / fig_1_data$APOC2)
+fig_1_data$APOC3_APOC2 <- log2(fig_1_data$APOC3 / fig_1_data$APOC2)
 
-# Make annotation
-library(ComplexHeatmap)
+fig_1_data$ANGPTL3_ANGPTL8 <- fig_1_data$ANGPTL3 / fig_1_data$ANGPTL8
 
-row_text_22 <- c(
-  ">75nm", rep("", 4),
-  "~64nm", rep("", 4),
-  "~53.6nm", rep("", 4),
-  "~44.5nm", rep("", 4),
-  "~36.8nm", rep("", 4),
-  "~31.3nm", rep("", 4),
-  "~28.6nm", rep("", 4),
-  "~25.5nm", rep("", 4),
-  "~23nm", rep("", 4),
-  "~18.7nm", rep("", 4),
-  "~14.3nm", rep("", 4),
-  "~12.1nm", rep("", 4),
-  "~10.9nm", rep("", 4),
-  "~8.7nm", rep("", 4),
-  "Avg. diam", rep("", 2),
-  "PL", rep("", 3),
-  "FA", rep("", 15)
-)
+# Graphical parameters ----
+fig_1_linesize <- 0.5
+fig_1_pointsize <- 1
 
-row_annotation_22 <- rowAnnotation(
-  anno1 = anno_text(
-    row_text_22,
-    which = "row",
-    gp = gpar(fontsize = 6, fontface = "plain", fontfamily = "Helvetica"),
-  )
-)
+# Define multiple comparisons correction ----
+p_correct_n <- 9
 
-col_labels_22 <- c("VLDL", "IDL", "LDL", "HDL")
-
-col_annotation_22 <- columnAnnotation(
-  anno3 = anno_text(
-    row_text_22,
-    which = "row",
-    gp = gpar(fontsize = 6, fontface = "plain", fontfamily = "Helvetica"),
-  )
-)
-
-# Make new names
-rnames1 <- data.frame(variableName = names(heatmap_data))
-colnames1 <- seq(1, ncol(heatmap_data))
-
-rnames2 <- base::merge(
-  rnames1,
-  variableMetadata,
-  by.x = "variableName",
-  sort = FALSE
-)
-
-rnames3 <- mapply(
-  function(x, y) {paste0(x, ". ", y)},
-  colnames1,
-  rnames2$alternativeName1
-)
-
-rownames(cor2$r) <- rnames3
-colnames(cor2$r) <- rnames3
-
-# Draw heatmap
-col_fun2 = circlize::colorRamp2(c(-1, 0, 1), c("blue", "white", "red"), transparency = 0)
-
-heatmap_22 <- Heatmap(
-  cor2$r,
-  cluster_rows = FALSE,
-  cluster_columns = FALSE,
+# Define statistical tests function ----
+calc_fig_1_test <- function(df, x, y) {
+  form1 <- formula(paste0(y, " ~ ", x))
+  fit1 <- lm(form1, data = df)
+  sum1 <- summary(fit1)
   
-  row_split = c(rep("1", 70), rep("2", 3), rep("3", 20)),
-  column_split = c(rep("1", 70), rep("2", 3), rep("3", 20)),
+  options(scipen = 100, digits = 4)
   
-  row_names_gp = gpar(fontsize = 5, fontface = "bold", fontfamily = "Helvetica"),
-  row_names_side = "right",
-  column_names_gp = gpar(fontsize = 5, fontface = "bold", fontfamily = "Helvetica"),
-  column_names_side = "top",
-  
-  width = unit(5.2, "inches"),
-  height = unit(5.2, "inches"),
-  
-  left_annotation = row_annotation_22,
-  
-  show_heatmap_legend = TRUE,
-  heatmap_legend_param = list(
-    at = c(-1, -0.5, 0, 0.5, 1),
-    col_fun = col_fun2,
-    title_position = "topcenter",
-    title = "Pearsons's correlation coefficient (r)",
-    title_gp = gpar(fontsize = 6, fontface = "bold", fontfamily = "Helvetica"),
-    labels_gp = gpar(fontsize = 6, fontface = "plain", fontfamily = "Helvetica"),
-    direction = "horizontal",
-    legend_width = unit(2, "inches")
-  )
-)
-heatmap_22
-
-# Forest plot
-forest_data <- merge(
-  missData.sampleMetadata[c("ID", "ITC")],
-  missData.dataMatrix,
-  by = "ID"
-)
-
-# Subset vars from heatmap
-forest_data <- forest_data[c("ID", "ITC", names(heatmap_data))]
-
-# Scale all vars except ID and ITC
-forest_data_2 <- data.frame(
-  forest_data["ITC"],
-  sapply(forest_data[, -c(1, 2)], scale)
-)
-
-# Calculate regressions
-forest_table <- calc_forest(
-  forest_data_2,
-  conf_level = 1 - 0.05 / 22
-)[-1, ]
-
-# Draw forest plot
-forest_table_ord <- forest_table
-forest_table_ord$plot_order <- seq(1, nrow(forest_table))
-forest_table_ord$x_labels <- sapply(
-  forest_table_ord$plot_order, 
-  function(x) {paste0(x, ".")}
-)
-
-forest_22 <- ggplot(forest_table_ord) +
-  geom_pointrange(
-    aes(
-      x = reorder(x_labels, plot_order),
-      y = beta,
-      ymin = lower95,
-      ymax = higher95
+  string1 <- paste0(
+    "Effect = ",
+    round(sum1$coefficients[x, "Estimate"], 4),
+    " \U00B5J/s per 1-X",
+    ", adj. P = ",
+    round(
+      p.adjust(
+        sum1$coefficients[x, "Pr(>|t|)"],
+        method = "bonferroni",
+        n = p_correct_n
+      ),
+      2
     ),
-    size = 0.3
-  ) +
-  geom_hline(yintercept = 0, lty = 2) +
-  xlab("") +
-  scale_x_discrete(position = "bottom") +
-  ylab("LPL activity (\U00B5J) per 1-SD") +
-  scale_y_continuous(
-    position = "left",
-    limits = c(-0.4, 0.4)
-  ) +
-  theme_classic() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text.x = element_text(family = "Helvetica", size = 6, face = "bold", colour = "black", angle = 90, vjust = 0.1),
-    axis.text.y = element_text(family = "Helvetica", size = 6, face = "plain", colour = "black")
+    ", R\U00B2 = ",
+    round(sum1$r.squared, 2)
   )
-forest_22
-
-# Variance explained barplot
-forest_table_ord$R2 <- forest_table_ord$R2 * 100
-
-barvar_22 <- ggplot(forest_table_ord) +
-  geom_hline(yintercept = 50, lty = 2) +
   
-  geom_bar(
-    aes(
-      x = reorder(x_labels, plot_order),
-      y = R2
-    ),
-    stat = "identity",
-    colour = "black",
-    fill = "white"
-  ) +
+  options(scipen = 0, digits = 7)
   
-  xlab("") +
-  scale_x_discrete(position = "bottom") +
-  ylab("Variance explained (R\U00B2 %)") +
-  scale_y_continuous(
-    position = "left",
-    limits = c(0, 100)
-  ) +
-  theme_classic() +
-  theme(
-    legend.position = "none",
-    axis.title.y = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text.x = element_text(family = "Helvetica", size = 6, face = "bold", colour = "black", angle = 90, vjust = 0.1),
-    axis.text.y = element_text(family = "Helvetica", size = 6, face = "plain", colour = "black")
-  )
-barvar_22
+  return(string1)
+}
 
-# Merge plots
-grob <- grid.grabExpr(
-  draw(heatmap_22, heatmap_legend_side = "bottom")
+# Ratio ----
+ratio1 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOC1_APOC2",
+  y = "ITC",
+  xlab = "APOC1/APOC2",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
 )
 
-figure_22 <- plot_grid(
-  grob,
-  plot_grid(NULL, forest_22, rel_heights = c(8, 92), ncol  = 1),
-  plot_grid(NULL, barvar_22, rel_heights = c(8, 92), ncol = 1),
-  ncol = 1,
-  rel_heights = c(65, 17.5, 17.5),
-  labels = c("A.", "B.", "C.")
+ratio2 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOC3_APOC2",
+  y = "ITC",
+  xlab = "APOC3/APOC2",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
 )
 
+ratio3 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "ANGPTL3_ANGPTL8",
+  y = "ITC",
+  xlab = "ANGPTL3/ANGPTL8",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+
+# Compute figs using ggstatsplot ----
+apoa5 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOA5_log",
+  y = "ITC",
+  xlab = "APOA5 (log2 ng/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+angptl3 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "ANGPTL3",
+  y = "ITC",
+  xlab = "ANGPTL3 (ng/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+angptl4 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "ANGPTL4_log",
+  y = "ITC",
+  xlab = "ANGPTL4 (log2 ng/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+angptl8 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "ANGPTL8_log",
+  y = "ITC",
+  xlab = "ANGPTL8 (log2 pg/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+apoc1 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOC1",
+  y = "ITC",
+  xlab = "APOC1 (ug/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+apoc2 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOC2_log",
+  y = "ITC",
+  xlab = "APOC2 (log2 mg/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+apoc3 <- ggstatsplot::ggscatterstats(
+  data = fig_1_data,
+  x = "APOC3_log",
+  y = "ITC",
+  xlab = "APOC3 (log2 mg/mL)",
+  ylab = "LPL activity (\U00B5J/s)",
+  title = "",
+  smooth.line.args = list(size = fig_1_linesize, color = "black"),
+  point.args	= list(size = fig_1_pointsize),
+  ggtheme = ggplot2::theme_classic(),
+  marginal.type = "histogram",
+  xfill = "white",
+  yfill = "white",
+  messages = FALSE,
+  ggplot.component = ggplot2::theme(
+    text = element_text(family = "Helvetica", size = 6),
+    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ),
+  ggstatsplot.layer = FALSE,
+  output = "plot",
+  bf.message = FALSE,
+  results.subtitle = FALSE
+)
+
+# Make grid and save
+figure_1 <- cowplot::plot_grid(
+  apoa5,
+  angptl3,
+  angptl4,
+  angptl8,
+  apoc1,
+  apoc2,
+  apoc3,
+  ratio1,
+  ratio2,
+  labels = c("A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.")
+)
+
+pdf.options(encoding = "ISOLatin1.enc")
+
+figure_1_ggdraw <- cowplot::ggdraw(figure_1) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOA5_log", "ITC"),
+    x = 1/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "ANGPTL3", "ITC"),
+    x = 3/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "ANGPTL4_log", "ITC"),
+    x = 5/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "ANGPTL8_log", "ITC"),
+    x = 1/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOC1", "ITC"),
+    x = 3/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOC2_log", "ITC"),
+    x = 5/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOC3_log", "ITC"),
+    x = 1/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOC1_APOC2", "ITC"),
+    x = 3/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) +
+  cowplot::draw_label(
+    calc_fig_1_test(fig_1_data, "APOC3_APOC2", "ITC"),
+    x = 5/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
+  ) 
+
+# Save plot ----
 cowplot::save_plot(
   "./out/figure_2.pdf",
-  figure_22,
-  base_height = 10,
+  figure_1_ggdraw,
+  base_height = 7.1,
   base_width = 7.1,
   dpi = 1000
 )
-

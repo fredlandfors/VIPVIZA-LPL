@@ -1,8 +1,13 @@
 # Description:
-#   Sources all the scripts needed for the VIPVIZA-LPL project
+#   Sources all the scripts needed for the VIPVIZA-LPL project.
+#   !OBSERVE! The script installs several packages if they are not already
+#   installed.
 
-# Clear space
-rm(list = ls())
+#----------------------------------------------------------------------------
+# Data paths
+#----------------------------------------------------------------------------
+data_path <- "~/projekt_data/2019-03-11_VIPVIZA-ITC_data/14766.xlsx"
+markdown_path <- "~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/markdown.RData"
 
 #----------------------------------------------------------------------------
 # Dependencies check
@@ -63,4 +68,4 @@ source(file = "./src/figure_2.R")
 source(file = "./src/table_S1-2.R")
 
 # Save data environment for markdown
-save.image("~/projekt_data/2019-03-11_VIPVIZA-ITC_data/rData/markdown.RData")
+save.image(markdown_path)

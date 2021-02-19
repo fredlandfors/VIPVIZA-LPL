@@ -1,10 +1,10 @@
-# Table 1: Descriptive stats
+# Table 1 ----
 check_packages(
   bioc_packages = c(),
   cran_packages = c("writexl")
 )
 
-# Get vars
+# Get vars ----
 vars_table_1 <- c(
   "age_3",
   "sex_3",
@@ -30,7 +30,7 @@ names_table_1 <- subset(
   variableName %in% vars_table_1
 )
 
-# Make table
+# Make table ----
 table_1 <- mk_descstats_table(
   sampleMetadata[vars_table_1],
   n_digits = 3,
@@ -48,7 +48,7 @@ table_1[3, 3] <-  ""
 table_1[4, 2] <- paste0("  ", table_1[4, 3])
 table_1[4, 3] <-  ""
 
-# Write to xlsx
+# Write to xlsx ----
 writexl::write_xlsx(
   list(Table.1 = table_1),
   path = "./out/table_1.xlsx"

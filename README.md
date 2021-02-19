@@ -1,56 +1,14 @@
 VIPVIZA-LPL
 ================
 
-  - [Analysis](#analysis)
-      - [Figure 1. Scatter plots, LPL control
-        proteins.](#figure-1.-scatter-plots-lpl-control-proteins.)
-      - [Figure 2. NMR heatmap, forest plot and bar
-        plot.](#figure-2.-nmr-heatmap-forest-plot-and-bar-plot.)
-      - [Table 1. Descriptive statistics, study
-        participants.](#table-1.-descriptive-statistics-study-participants.)
-      - [Table S1-2. NMR summary stats (S1) and linear regression
-        results
-        (S2).](#table-s1-2.-nmr-summary-stats-s1-and-linear-regression-results-s2.)
-  - [Preprocessing](#preprocessing)
-      - [NMR](#nmr)
-          - [A. Pre-imputation
+-   [Preprocessing](#preprocessing)
+    -   [NMR](#nmr)
+        -   [A. Pre-imputation
             diagnostics](#a.-pre-imputation-diagnostics)
-          - [B. Post-imputation
+        -   [B. Post-imputation
             diagnostics](#b.-post-imputation-diagnostics)
-          - [C. Outlier analysis](#c.-outlier-analysis)
-      - [Sample metadata](#sample-metadata)
-          - [A. Pre-imputation
-            diagnostics](#a.-pre-imputation-diagnostics-1)
-          - [B. Post-imputation
-            diagnostics](#b.-post-imputation-diagnostics-1)
-          - [C. Outlier analysis](#c.-outlier-analysis-1)
-  - [Session info](#session-info)
-
-# Analysis
-
-## Figure 1. Scatter plots, LPL control proteins.
-
-[Click here to download high-resolution
-version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_1.pdf)
-
-Thumbnail: ![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
-
-## Figure 2. NMR heatmap, forest plot and bar plot.
-
-[Click here to download high-resolution
-version](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/figure_2.pdf)
-
-Thumbnail: ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-
-## Table 1. Descriptive statistics, study participants.
-
-[Click here to download xlsx
-file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_1.xlsx)
-
-## Table S1-2. NMR summary stats (S1) and linear regression results (S2).
-
-[Click here to download xlsx
-file](https://github.com/fredlandfors/VIPVIZA-LPL/blob/master/out/table_S1-2.xlsx)
+        -   [C. Outlier analysis](#c.-outlier-analysis)
+-   [Session info](#session-info)
 
 # Preprocessing
 
@@ -111,49 +69,1145 @@ Percent missing:
     ##  XL_VLDL_FC 
     ##   2.7272727
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+    ## $Main_bar
+    ## TableGrob (12 x 9) "layout": 18 grobs
+    ##     z         cells       name                                       grob
+    ## 1   0 ( 1-12, 1- 9) background             rect[plot.background..rect.32]
+    ## 2   5 ( 6- 6, 4- 4)     spacer                             zeroGrob[NULL]
+    ## 3   7 ( 7- 7, 4- 4)     axis-l         absoluteGrob[GRID.absoluteGrob.22]
+    ## 4   3 ( 8- 8, 4- 4)     spacer                             zeroGrob[NULL]
+    ## 5   6 ( 6- 6, 5- 5)     axis-t                             zeroGrob[NULL]
+    ## 6   1 ( 7- 7, 5- 5)      panel                    gTree[panel-1.gTree.16]
+    ## 7   9 ( 8- 8, 5- 5)     axis-b         absoluteGrob[GRID.absoluteGrob.17]
+    ## 8   4 ( 6- 6, 6- 6)     spacer                             zeroGrob[NULL]
+    ## 9   8 ( 7- 7, 6- 6)     axis-r                             zeroGrob[NULL]
+    ## 10  2 ( 8- 8, 6- 6)     spacer                             zeroGrob[NULL]
+    ## 11 10 ( 5- 5, 5- 5)     xlab-t                             zeroGrob[NULL]
+    ## 12 11 ( 9- 9, 5- 5)     xlab-b                             zeroGrob[NULL]
+    ## 13 12 ( 7- 7, 3- 3)     ylab-l titleGrob[axis.title.y.left..titleGrob.26]
+    ## 14 13 ( 7- 7, 7- 7)     ylab-r                             zeroGrob[NULL]
+    ## 15 14 ( 4- 4, 5- 5)   subtitle       zeroGrob[plot.subtitle..zeroGrob.28]
+    ## 16 15 ( 3- 3, 5- 5)      title          zeroGrob[plot.title..zeroGrob.27]
+    ## 17 16 (10-10, 5- 5)    caption        zeroGrob[plot.caption..zeroGrob.30]
+    ## 18 17 ( 2- 2, 2- 2)        tag            zeroGrob[plot.tag..zeroGrob.29]
+    ## 
+    ## $Matrix
+    ## TableGrob (12 x 9) "layout": 18 grobs
+    ##     z         cells       name                                       grob
+    ## 1   0 ( 1-12, 1- 9) background             rect[plot.background..rect.63]
+    ## 2   5 ( 6- 6, 4- 4)     spacer                             zeroGrob[NULL]
+    ## 3   7 ( 7- 7, 4- 4)     axis-l         absoluteGrob[GRID.absoluteGrob.53]
+    ## 4   3 ( 8- 8, 4- 4)     spacer                             zeroGrob[NULL]
+    ## 5   6 ( 6- 6, 5- 5)     axis-t                             zeroGrob[NULL]
+    ## 6   1 ( 7- 7, 5- 5)      panel                    gTree[panel-1.gTree.48]
+    ## 7   9 ( 8- 8, 5- 5)     axis-b         absoluteGrob[GRID.absoluteGrob.49]
+    ## 8   4 ( 6- 6, 6- 6)     spacer                             zeroGrob[NULL]
+    ## 9   8 ( 7- 7, 6- 6)     axis-r                             zeroGrob[NULL]
+    ## 10  2 ( 8- 8, 6- 6)     spacer                             zeroGrob[NULL]
+    ## 11 10 ( 5- 5, 5- 5)     xlab-t                             zeroGrob[NULL]
+    ## 12 11 ( 9- 9, 5- 5)     xlab-b                             zeroGrob[NULL]
+    ## 13 12 ( 7- 7, 3- 3)     ylab-l titleGrob[axis.title.y.left..titleGrob.57]
+    ## 14 13 ( 7- 7, 7- 7)     ylab-r                             zeroGrob[NULL]
+    ## 15 14 ( 4- 4, 5- 5)   subtitle       zeroGrob[plot.subtitle..zeroGrob.59]
+    ## 16 15 ( 3- 3, 5- 5)      title          zeroGrob[plot.title..zeroGrob.58]
+    ## 17 16 (10-10, 5- 5)    caption        zeroGrob[plot.caption..zeroGrob.61]
+    ## 18 17 ( 2- 2, 2- 2)        tag            zeroGrob[plot.tag..zeroGrob.60]
+    ## 
+    ## $Sizes
+    ## TableGrob (12 x 9) "layout": 18 grobs
+    ##     z         cells       name                                         grob
+    ## 1   0 ( 1-12, 1- 9) background               rect[plot.background..rect.90]
+    ## 2   5 ( 6- 6, 4- 4)     spacer                               zeroGrob[NULL]
+    ## 3   7 ( 7- 7, 4- 4)     axis-l           absoluteGrob[GRID.absoluteGrob.81]
+    ## 4   3 ( 8- 8, 4- 4)     spacer                               zeroGrob[NULL]
+    ## 5   6 ( 6- 6, 5- 5)     axis-t                               zeroGrob[NULL]
+    ## 6   1 ( 7- 7, 5- 5)      panel                      gTree[panel-1.gTree.75]
+    ## 7   9 ( 8- 8, 5- 5)     axis-b           absoluteGrob[GRID.absoluteGrob.80]
+    ## 8   4 ( 6- 6, 6- 6)     spacer                               zeroGrob[NULL]
+    ## 9   8 ( 7- 7, 6- 6)     axis-r                               zeroGrob[NULL]
+    ## 10  2 ( 8- 8, 6- 6)     spacer                               zeroGrob[NULL]
+    ## 11 10 ( 5- 5, 5- 5)     xlab-t                               zeroGrob[NULL]
+    ## 12 11 ( 9- 9, 5- 5)     xlab-b titleGrob[axis.title.x.bottom..titleGrob.84]
+    ## 13 12 ( 7- 7, 3- 3)     ylab-l                               zeroGrob[NULL]
+    ## 14 13 ( 7- 7, 7- 7)     ylab-r                               zeroGrob[NULL]
+    ## 15 14 ( 4- 4, 5- 5)   subtitle         zeroGrob[plot.subtitle..zeroGrob.86]
+    ## 16 15 ( 3- 3, 5- 5)      title            zeroGrob[plot.title..zeroGrob.85]
+    ## 17 16 (10-10, 5- 5)    caption          zeroGrob[plot.caption..zeroGrob.88]
+    ## 18 17 ( 2- 2, 2- 2)        tag              zeroGrob[plot.tag..zeroGrob.87]
+    ## 
+    ## $labels
+    ## [1] "XL_VLDL_FC_NA" "L_HDL_TG_NA"   "L_HDL_FC_NA"   "L_HDL_CE_NA"  
+    ## [5] "L_HDL_C_NA"   
+    ## 
+    ## $mb.ratio
+    ## [1] 0.7 0.3
+    ## 
+    ## $att.x
+    ## NULL
+    ## 
+    ## $att.y
+    ## NULL
+    ## 
+    ## $New_data
+    ##     ID_NA XL_VLDL_FC_NA L_HDL_C_NA L_HDL_CE_NA L_HDL_FC_NA L_HDL_TG_NA
+    ## 1       0             0          0           0           0           0
+    ## 2       0             1          0           0           0           0
+    ## 3       0             0          0           0           0           0
+    ## 4       0             0          0           0           0           0
+    ## 5       0             0          0           0           0           0
+    ## 6       0             0          0           0           0           0
+    ## 7       0             0          0           0           0           0
+    ## 8       0             0          0           0           0           0
+    ## 9       0             0          0           0           0           0
+    ## 10      0             0          0           0           0           0
+    ## 11      0             0          0           0           0           0
+    ## 12      0             0          0           0           0           0
+    ## 13      0             0          0           0           0           0
+    ## 14      0             0          0           0           0           0
+    ## 15      0             0          0           0           0           0
+    ## 16      0             0          0           0           0           0
+    ## 17      0             0          0           0           0           0
+    ## 18      0             0          0           0           0           0
+    ## 19      0             0          0           0           0           0
+    ## 20      0             0          0           0           0           0
+    ## 21      0             0          0           0           0           0
+    ## 22      0             0          0           0           0           0
+    ## 23      0             0          0           0           0           0
+    ## 24      0             0          0           0           0           0
+    ## 25      0             0          0           0           0           0
+    ## 26      0             0          0           0           0           0
+    ## 27      0             0          0           0           0           0
+    ## 28      0             0          0           0           0           0
+    ## 29      0             0          0           0           0           0
+    ## 30      0             0          0           0           0           0
+    ## 31      0             0          0           0           0           0
+    ## 32      0             0          0           0           0           0
+    ## 33      0             0          0           0           0           0
+    ## 34      0             0          0           0           0           0
+    ## 35      0             0          0           0           0           0
+    ## 36      0             0          0           0           0           0
+    ## 37      0             0          0           0           0           0
+    ## 38      0             0          0           0           0           0
+    ## 39      0             0          0           0           0           0
+    ## 40      0             0          0           0           0           0
+    ## 41      0             0          0           0           0           0
+    ## 42      0             0          0           0           0           0
+    ## 43      0             0          0           0           0           0
+    ## 44      0             0          0           0           0           0
+    ## 45      0             0          0           0           0           0
+    ## 46      0             0          0           0           0           0
+    ## 47      0             0          0           0           0           0
+    ## 48      0             0          0           0           0           0
+    ## 49      0             0          0           0           0           0
+    ## 50      0             0          0           0           0           0
+    ## 51      0             0          0           0           0           0
+    ## 52      0             0          0           0           0           0
+    ## 53      0             0          0           0           0           0
+    ## 54      0             0          0           0           0           0
+    ## 55      0             0          0           0           0           0
+    ## 56      0             0          0           0           0           0
+    ## 57      0             0          0           0           0           0
+    ## 58      0             0          0           0           0           0
+    ## 59      0             0          0           0           0           0
+    ## 60      0             0          0           0           0           0
+    ## 61      0             0          0           0           0           0
+    ## 62      0             0          1           1           1           1
+    ## 63      0             0          0           0           0           0
+    ## 64      0             0          0           0           0           0
+    ## 65      0             0          0           0           0           0
+    ## 66      0             0          0           0           0           0
+    ## 67      0             0          0           0           0           0
+    ## 68      0             0          0           0           0           0
+    ## 69      0             0          0           0           0           0
+    ## 70      0             0          0           0           0           0
+    ## 71      0             0          0           0           0           0
+    ## 72      0             0          0           0           0           0
+    ## 73      0             0          0           0           0           0
+    ## 74      0             0          0           0           0           0
+    ## 75      0             0          0           0           0           0
+    ## 76      0             0          0           0           0           0
+    ## 77      0             0          0           0           0           0
+    ## 78      0             0          0           0           0           0
+    ## 79      0             0          0           0           0           0
+    ## 80      0             0          0           0           0           0
+    ## 81      0             0          0           0           0           0
+    ## 82      0             0          0           0           0           0
+    ## 83      0             0          0           0           0           0
+    ## 84      0             0          0           0           0           0
+    ## 85      0             0          0           0           0           0
+    ## 86      0             0          0           0           0           0
+    ## 87      0             0          0           0           0           0
+    ## 88      0             0          0           0           0           0
+    ## 89      0             0          0           0           0           0
+    ## 90      0             0          0           0           0           0
+    ## 91      0             0          0           0           0           0
+    ## 92      0             0          0           0           0           0
+    ## 93      0             0          0           0           0           0
+    ## 94      0             0          0           0           0           0
+    ## 95      0             0          0           0           0           0
+    ## 96      0             1          0           0           0           0
+    ## 97      0             0          0           0           0           0
+    ## 98      0             1          0           0           0           0
+    ## 99      0             0          1           1           1           1
+    ## 100     0             0          0           0           0           0
+    ## 101     0             0          0           0           0           0
+    ## 102     0             0          0           0           0           0
+    ## 103     0             0          0           0           0           0
+    ## 104     0             0          0           0           0           0
+    ## 105     0             0          0           0           0           0
+    ## 106     0             0          0           0           0           0
+    ## 107     0             0          0           0           0           0
+    ## 108     0             0          0           0           0           0
+    ## 109     0             0          0           0           0           0
+    ## 110     0             0          0           0           0           0
+    ##     M_HDL_P_NA M_HDL_L_NA M_HDL_PL_NA M_HDL_C_NA M_HDL_CE_NA M_HDL_FC_NA
+    ## 1            0          0           0          0           0           0
+    ## 2            0          0           0          0           0           0
+    ## 3            0          0           0          0           0           0
+    ## 4            0          0           0          0           0           0
+    ## 5            0          0           0          0           0           0
+    ## 6            0          0           0          0           0           0
+    ## 7            0          0           0          0           0           0
+    ## 8            0          0           0          0           0           0
+    ## 9            0          0           0          0           0           0
+    ## 10           0          0           0          0           0           0
+    ## 11           0          0           0          0           0           0
+    ## 12           0          0           0          0           0           0
+    ## 13           0          0           0          0           0           0
+    ## 14           0          0           0          0           0           0
+    ## 15           0          0           0          0           0           0
+    ## 16           0          0           0          0           0           0
+    ## 17           0          0           0          0           0           0
+    ## 18           0          0           0          0           0           0
+    ## 19           0          0           0          0           0           0
+    ## 20           0          0           0          0           0           0
+    ## 21           0          0           0          0           0           0
+    ## 22           0          0           0          0           0           0
+    ## 23           0          0           0          0           0           0
+    ## 24           0          0           0          0           0           0
+    ## 25           0          0           0          0           0           0
+    ## 26           0          0           0          0           0           0
+    ## 27           0          0           0          0           0           0
+    ## 28           0          0           0          0           0           0
+    ## 29           0          0           0          0           0           0
+    ## 30           0          0           0          0           0           0
+    ## 31           0          0           0          0           0           0
+    ## 32           0          0           0          0           0           0
+    ## 33           0          0           0          0           0           0
+    ## 34           0          0           0          0           0           0
+    ## 35           0          0           0          0           0           0
+    ## 36           0          0           0          0           0           0
+    ## 37           0          0           0          0           0           0
+    ## 38           0          0           0          0           0           0
+    ## 39           0          0           0          0           0           0
+    ## 40           0          0           0          0           0           0
+    ## 41           0          0           0          0           0           0
+    ## 42           0          0           0          0           0           0
+    ## 43           0          0           0          0           0           0
+    ## 44           0          0           0          0           0           0
+    ## 45           0          0           0          0           0           0
+    ## 46           0          0           0          0           0           0
+    ## 47           0          0           0          0           0           0
+    ## 48           0          0           0          0           0           0
+    ## 49           0          0           0          0           0           0
+    ## 50           0          0           0          0           0           0
+    ## 51           0          0           0          0           0           0
+    ## 52           0          0           0          0           0           0
+    ## 53           0          0           0          0           0           0
+    ## 54           0          0           0          0           0           0
+    ## 55           0          0           0          0           0           0
+    ## 56           0          0           0          0           0           0
+    ## 57           0          0           0          0           0           0
+    ## 58           0          0           0          0           0           0
+    ## 59           0          0           0          0           0           0
+    ## 60           0          0           0          0           0           0
+    ## 61           0          0           0          0           0           0
+    ## 62           0          0           0          0           0           0
+    ## 63           0          0           0          0           0           0
+    ## 64           0          0           0          0           0           0
+    ## 65           0          0           0          0           0           0
+    ## 66           0          0           0          0           0           0
+    ## 67           0          0           0          0           0           0
+    ## 68           0          0           0          0           0           0
+    ## 69           0          0           0          0           0           0
+    ## 70           0          0           0          0           0           0
+    ## 71           0          0           0          0           0           0
+    ## 72           0          0           0          0           0           0
+    ## 73           0          0           0          0           0           0
+    ## 74           0          0           0          0           0           0
+    ## 75           0          0           0          0           0           0
+    ## 76           0          0           0          0           0           0
+    ## 77           0          0           0          0           0           0
+    ## 78           0          0           0          0           0           0
+    ## 79           0          0           0          0           0           0
+    ## 80           0          0           0          0           0           0
+    ## 81           0          0           0          0           0           0
+    ## 82           0          0           0          0           0           0
+    ## 83           0          0           0          0           0           0
+    ## 84           0          0           0          0           0           0
+    ## 85           0          0           0          0           0           0
+    ## 86           0          0           0          0           0           0
+    ## 87           0          0           0          0           0           0
+    ## 88           0          0           0          0           0           0
+    ## 89           0          0           0          0           0           0
+    ## 90           0          0           0          0           0           0
+    ## 91           0          0           0          0           0           0
+    ## 92           0          0           0          0           0           0
+    ## 93           0          0           0          0           0           0
+    ## 94           0          0           0          0           0           0
+    ## 95           0          0           0          0           0           0
+    ## 96           0          0           0          0           0           0
+    ## 97           0          0           0          0           0           0
+    ## 98           0          0           0          0           0           0
+    ## 99           0          0           0          0           0           0
+    ## 100          0          0           0          0           0           0
+    ## 101          0          0           0          0           0           0
+    ## 102          0          0           0          0           0           0
+    ## 103          0          0           0          0           0           0
+    ## 104          0          0           0          0           0           0
+    ## 105          0          0           0          0           0           0
+    ## 106          0          0           0          0           0           0
+    ## 107          0          0           0          0           0           0
+    ## 108          0          0           0          0           0           0
+    ## 109          0          0           0          0           0           0
+    ## 110          0          0           0          0           0           0
+    ##     M_HDL_TG_NA S_HDL_P_NA S_HDL_L_NA S_HDL_PL_NA S_HDL_C_NA S_HDL_CE_NA
+    ## 1             0          0          0           0          0           0
+    ## 2             0          0          0           0          0           0
+    ## 3             0          0          0           0          0           0
+    ## 4             0          0          0           0          0           0
+    ## 5             0          0          0           0          0           0
+    ## 6             0          0          0           0          0           0
+    ## 7             0          0          0           0          0           0
+    ## 8             0          0          0           0          0           0
+    ## 9             0          0          0           0          0           0
+    ## 10            0          0          0           0          0           0
+    ## 11            0          0          0           0          0           0
+    ## 12            0          0          0           0          0           0
+    ## 13            0          0          0           0          0           0
+    ## 14            0          0          0           0          0           0
+    ## 15            0          0          0           0          0           0
+    ## 16            0          0          0           0          0           0
+    ## 17            0          0          0           0          0           0
+    ## 18            0          0          0           0          0           0
+    ## 19            0          0          0           0          0           0
+    ## 20            0          0          0           0          0           0
+    ## 21            0          0          0           0          0           0
+    ## 22            0          0          0           0          0           0
+    ## 23            0          0          0           0          0           0
+    ## 24            0          0          0           0          0           0
+    ## 25            0          0          0           0          0           0
+    ## 26            0          0          0           0          0           0
+    ## 27            0          0          0           0          0           0
+    ## 28            0          0          0           0          0           0
+    ## 29            0          0          0           0          0           0
+    ## 30            0          0          0           0          0           0
+    ## 31            0          0          0           0          0           0
+    ## 32            0          0          0           0          0           0
+    ## 33            0          0          0           0          0           0
+    ## 34            0          0          0           0          0           0
+    ## 35            0          0          0           0          0           0
+    ## 36            0          0          0           0          0           0
+    ## 37            0          0          0           0          0           0
+    ## 38            0          0          0           0          0           0
+    ## 39            0          0          0           0          0           0
+    ## 40            0          0          0           0          0           0
+    ## 41            0          0          0           0          0           0
+    ## 42            0          0          0           0          0           0
+    ## 43            0          0          0           0          0           0
+    ## 44            0          0          0           0          0           0
+    ## 45            0          0          0           0          0           0
+    ## 46            0          0          0           0          0           0
+    ## 47            0          0          0           0          0           0
+    ## 48            0          0          0           0          0           0
+    ## 49            0          0          0           0          0           0
+    ## 50            0          0          0           0          0           0
+    ## 51            0          0          0           0          0           0
+    ## 52            0          0          0           0          0           0
+    ## 53            0          0          0           0          0           0
+    ## 54            0          0          0           0          0           0
+    ## 55            0          0          0           0          0           0
+    ## 56            0          0          0           0          0           0
+    ## 57            0          0          0           0          0           0
+    ## 58            0          0          0           0          0           0
+    ## 59            0          0          0           0          0           0
+    ## 60            0          0          0           0          0           0
+    ## 61            0          0          0           0          0           0
+    ## 62            0          0          0           0          0           0
+    ## 63            0          0          0           0          0           0
+    ## 64            0          0          0           0          0           0
+    ## 65            0          0          0           0          0           0
+    ## 66            0          0          0           0          0           0
+    ## 67            0          0          0           0          0           0
+    ## 68            0          0          0           0          0           0
+    ## 69            0          0          0           0          0           0
+    ## 70            0          0          0           0          0           0
+    ## 71            0          0          0           0          0           0
+    ## 72            0          0          0           0          0           0
+    ## 73            0          0          0           0          0           0
+    ## 74            0          0          0           0          0           0
+    ## 75            0          0          0           0          0           0
+    ## 76            0          0          0           0          0           0
+    ## 77            0          0          0           0          0           0
+    ## 78            0          0          0           0          0           0
+    ## 79            0          0          0           0          0           0
+    ## 80            0          0          0           0          0           0
+    ## 81            0          0          0           0          0           0
+    ## 82            0          0          0           0          0           0
+    ## 83            0          0          0           0          0           0
+    ## 84            0          0          0           0          0           0
+    ## 85            0          0          0           0          0           0
+    ## 86            0          0          0           0          0           0
+    ## 87            0          0          0           0          0           0
+    ## 88            0          0          0           0          0           0
+    ## 89            0          0          0           0          0           0
+    ## 90            0          0          0           0          0           0
+    ## 91            0          0          0           0          0           0
+    ## 92            0          0          0           0          0           0
+    ## 93            0          0          0           0          0           0
+    ## 94            0          0          0           0          0           0
+    ## 95            0          0          0           0          0           0
+    ## 96            0          0          0           0          0           0
+    ## 97            0          0          0           0          0           0
+    ## 98            0          0          0           0          0           0
+    ## 99            0          0          0           0          0           0
+    ## 100           0          0          0           0          0           0
+    ## 101           0          0          0           0          0           0
+    ## 102           0          0          0           0          0           0
+    ## 103           0          0          0           0          0           0
+    ## 104           0          0          0           0          0           0
+    ## 105           0          0          0           0          0           0
+    ## 106           0          0          0           0          0           0
+    ## 107           0          0          0           0          0           0
+    ## 108           0          0          0           0          0           0
+    ## 109           0          0          0           0          0           0
+    ## 110           0          0          0           0          0           0
+    ##     S_HDL_FC_NA S_HDL_TG_NA VLDL_D_NA LDL_D_NA HDL_D_NA Serum_C_NA VLDL_C_NA
+    ## 1             0           0         0        0        0          0         0
+    ## 2             0           0         0        0        0          0         0
+    ## 3             0           0         0        0        0          0         0
+    ## 4             0           0         0        0        0          0         0
+    ## 5             0           0         0        0        0          0         0
+    ## 6             0           0         0        0        0          0         0
+    ## 7             0           0         0        0        0          0         0
+    ## 8             0           0         0        0        0          0         0
+    ## 9             0           0         0        0        0          0         0
+    ## 10            0           0         0        0        0          0         0
+    ## 11            0           0         0        0        0          0         0
+    ## 12            0           0         0        0        0          0         0
+    ## 13            0           0         0        0        0          0         0
+    ## 14            0           0         0        0        0          0         0
+    ## 15            0           0         0        0        0          0         0
+    ## 16            0           0         0        0        0          0         0
+    ## 17            0           0         0        0        0          0         0
+    ## 18            0           0         0        0        0          0         0
+    ## 19            0           0         0        0        0          0         0
+    ## 20            0           0         0        0        0          0         0
+    ## 21            0           0         0        0        0          0         0
+    ## 22            0           0         0        0        0          0         0
+    ## 23            0           0         0        0        0          0         0
+    ## 24            0           0         0        0        0          0         0
+    ## 25            0           0         0        0        0          0         0
+    ## 26            0           0         0        0        0          0         0
+    ## 27            0           0         0        0        0          0         0
+    ## 28            0           0         0        0        0          0         0
+    ## 29            0           0         0        0        0          0         0
+    ## 30            0           0         0        0        0          0         0
+    ## 31            0           0         0        0        0          0         0
+    ## 32            0           0         0        0        0          0         0
+    ## 33            0           0         0        0        0          0         0
+    ## 34            0           0         0        0        0          0         0
+    ## 35            0           0         0        0        0          0         0
+    ## 36            0           0         0        0        0          0         0
+    ## 37            0           0         0        0        0          0         0
+    ## 38            0           0         0        0        0          0         0
+    ## 39            0           0         0        0        0          0         0
+    ## 40            0           0         0        0        0          0         0
+    ## 41            0           0         0        0        0          0         0
+    ## 42            0           0         0        0        0          0         0
+    ## 43            0           0         0        0        0          0         0
+    ## 44            0           0         0        0        0          0         0
+    ## 45            0           0         0        0        0          0         0
+    ## 46            0           0         0        0        0          0         0
+    ## 47            0           0         0        0        0          0         0
+    ## 48            0           0         0        0        0          0         0
+    ## 49            0           0         0        0        0          0         0
+    ## 50            0           0         0        0        0          0         0
+    ## 51            0           0         0        0        0          0         0
+    ## 52            0           0         0        0        0          0         0
+    ## 53            0           0         0        0        0          0         0
+    ## 54            0           0         0        0        0          0         0
+    ## 55            0           0         0        0        0          0         0
+    ## 56            0           0         0        0        0          0         0
+    ## 57            0           0         0        0        0          0         0
+    ## 58            0           0         0        0        0          0         0
+    ## 59            0           0         0        0        0          0         0
+    ## 60            0           0         0        0        0          0         0
+    ## 61            0           0         0        0        0          0         0
+    ## 62            0           0         0        0        0          0         0
+    ## 63            0           0         0        0        0          0         0
+    ## 64            0           0         0        0        0          0         0
+    ## 65            0           0         0        0        0          0         0
+    ## 66            0           0         0        0        0          0         0
+    ## 67            0           0         0        0        0          0         0
+    ## 68            0           0         0        0        0          0         0
+    ## 69            0           0         0        0        0          0         0
+    ## 70            0           0         0        0        0          0         0
+    ## 71            0           0         0        0        0          0         0
+    ## 72            0           0         0        0        0          0         0
+    ## 73            0           0         0        0        0          0         0
+    ## 74            0           0         0        0        0          0         0
+    ## 75            0           0         0        0        0          0         0
+    ## 76            0           0         0        0        0          0         0
+    ## 77            0           0         0        0        0          0         0
+    ## 78            0           0         0        0        0          0         0
+    ## 79            0           0         0        0        0          0         0
+    ## 80            0           0         0        0        0          0         0
+    ## 81            0           0         0        0        0          0         0
+    ## 82            0           0         0        0        0          0         0
+    ## 83            0           0         0        0        0          0         0
+    ## 84            0           0         0        0        0          0         0
+    ## 85            0           0         0        0        0          0         0
+    ## 86            0           0         0        0        0          0         0
+    ## 87            0           0         0        0        0          0         0
+    ## 88            0           0         0        0        0          0         0
+    ## 89            0           0         0        0        0          0         0
+    ## 90            0           0         0        0        0          0         0
+    ## 91            0           0         0        0        0          0         0
+    ## 92            0           0         0        0        0          0         0
+    ## 93            0           0         0        0        0          0         0
+    ## 94            0           0         0        0        0          0         0
+    ## 95            0           0         0        0        0          0         0
+    ## 96            0           0         0        0        0          0         0
+    ## 97            0           0         0        0        0          0         0
+    ## 98            0           0         0        0        0          0         0
+    ## 99            0           0         0        0        0          0         0
+    ## 100           0           0         0        0        0          0         0
+    ## 101           0           0         0        0        0          0         0
+    ## 102           0           0         0        0        0          0         0
+    ## 103           0           0         0        0        0          0         0
+    ## 104           0           0         0        0        0          0         0
+    ## 105           0           0         0        0        0          0         0
+    ## 106           0           0         0        0        0          0         0
+    ## 107           0           0         0        0        0          0         0
+    ## 108           0           0         0        0        0          0         0
+    ## 109           0           0         0        0        0          0         0
+    ## 110           0           0         0        0        0          0         0
+    ##     Remnant_C_NA LDL_C_NA HDL_C_NA HDL2_C_NA HDL3_C_NA EstC_NA FreeC_NA
+    ## 1              0        0        0         0         0       0        0
+    ## 2              0        0        0         0         0       0        0
+    ## 3              0        0        0         0         0       0        0
+    ## 4              0        0        0         0         0       0        0
+    ## 5              0        0        0         0         0       0        0
+    ## 6              0        0        0         0         0       0        0
+    ## 7              0        0        0         0         0       0        0
+    ## 8              0        0        0         0         0       0        0
+    ## 9              0        0        0         0         0       0        0
+    ## 10             0        0        0         0         0       0        0
+    ## 11             0        0        0         0         0       0        0
+    ## 12             0        0        0         0         0       0        0
+    ## 13             0        0        0         0         0       0        0
+    ## 14             0        0        0         0         0       0        0
+    ## 15             0        0        0         0         0       0        0
+    ## 16             0        0        0         0         0       0        0
+    ## 17             0        0        0         0         0       0        0
+    ## 18             0        0        0         0         0       0        0
+    ## 19             0        0        0         0         0       0        0
+    ## 20             0        0        0         0         0       0        0
+    ## 21             0        0        0         0         0       0        0
+    ## 22             0        0        0         0         0       0        0
+    ## 23             0        0        0         0         0       0        0
+    ## 24             0        0        0         0         0       0        0
+    ## 25             0        0        0         0         0       0        0
+    ## 26             0        0        0         0         0       0        0
+    ## 27             0        0        0         0         0       0        0
+    ## 28             0        0        0         0         0       0        0
+    ## 29             0        0        0         0         0       0        0
+    ## 30             0        0        0         0         0       0        0
+    ## 31             0        0        0         0         0       0        0
+    ## 32             0        0        0         0         0       0        0
+    ## 33             0        0        0         0         0       0        0
+    ## 34             0        0        0         0         0       0        0
+    ## 35             0        0        0         0         0       0        0
+    ## 36             0        0        0         0         0       0        0
+    ## 37             0        0        0         0         0       0        0
+    ## 38             0        0        0         0         0       0        0
+    ## 39             0        0        0         0         0       0        0
+    ## 40             0        0        0         0         0       0        0
+    ## 41             0        0        0         0         0       0        0
+    ## 42             0        0        0         0         0       0        0
+    ## 43             0        0        0         0         0       0        0
+    ## 44             0        0        0         0         0       0        0
+    ## 45             0        0        0         0         0       0        0
+    ## 46             0        0        0         0         0       0        0
+    ## 47             0        0        0         0         0       0        0
+    ## 48             0        0        0         0         0       0        0
+    ## 49             0        0        0         0         0       0        0
+    ## 50             0        0        0         0         0       0        0
+    ## 51             0        0        0         0         0       0        0
+    ## 52             0        0        0         0         0       0        0
+    ## 53             0        0        0         0         0       0        0
+    ## 54             0        0        0         0         0       0        0
+    ## 55             0        0        0         0         0       0        0
+    ## 56             0        0        0         0         0       0        0
+    ## 57             0        0        0         0         0       0        0
+    ## 58             0        0        0         0         0       0        0
+    ## 59             0        0        0         0         0       0        0
+    ## 60             0        0        0         0         0       0        0
+    ## 61             0        0        0         0         0       0        0
+    ## 62             0        0        0         0         0       0        0
+    ## 63             0        0        0         0         0       0        0
+    ## 64             0        0        0         0         0       0        0
+    ## 65             0        0        0         0         0       0        0
+    ## 66             0        0        0         0         0       0        0
+    ## 67             0        0        0         0         0       0        0
+    ## 68             0        0        0         0         0       0        0
+    ## 69             0        0        0         0         0       0        0
+    ## 70             0        0        0         0         0       0        0
+    ## 71             0        0        0         0         0       0        0
+    ## 72             0        0        0         0         0       0        0
+    ## 73             0        0        0         0         0       0        0
+    ## 74             0        0        0         0         0       0        0
+    ## 75             0        0        0         0         0       0        0
+    ## 76             0        0        0         0         0       0        0
+    ## 77             0        0        0         0         0       0        0
+    ## 78             0        0        0         0         0       0        0
+    ## 79             0        0        0         0         0       0        0
+    ## 80             0        0        0         0         0       0        0
+    ## 81             0        0        0         0         0       0        0
+    ## 82             0        0        0         0         0       0        0
+    ## 83             0        0        0         0         0       0        0
+    ## 84             0        0        0         0         0       0        0
+    ## 85             0        0        0         0         0       0        0
+    ## 86             0        0        0         0         0       0        0
+    ## 87             0        0        0         0         0       0        0
+    ## 88             0        0        0         0         0       0        0
+    ## 89             0        0        0         0         0       0        0
+    ## 90             0        0        0         0         0       0        0
+    ## 91             0        0        0         0         0       0        0
+    ## 92             0        0        0         0         0       0        0
+    ## 93             0        0        0         0         0       0        0
+    ## 94             0        0        0         0         0       0        0
+    ## 95             0        0        0         0         0       0        0
+    ## 96             0        0        0         0         0       0        0
+    ## 97             0        0        0         0         0       0        0
+    ## 98             0        0        0         0         0       0        0
+    ## 99             0        0        0         0         0       0        0
+    ## 100            0        0        0         0         0       0        0
+    ## 101            0        0        0         0         0       0        0
+    ## 102            0        0        0         0         0       0        0
+    ## 103            0        0        0         0         0       0        0
+    ## 104            0        0        0         0         0       0        0
+    ## 105            0        0        0         0         0       0        0
+    ## 106            0        0        0         0         0       0        0
+    ## 107            0        0        0         0         0       0        0
+    ## 108            0        0        0         0         0       0        0
+    ## 109            0        0        0         0         0       0        0
+    ## 110            0        0        0         0         0       0        0
+    ##     Serum_TG_NA VLDL_TG_NA LDL_TG_NA HDL_TG_NA TotPG_NA TG_PG_NA PC_NA SM_NA
+    ## 1             0          0         0         0        0        0     0     0
+    ## 2             0          0         0         0        0        0     0     0
+    ## 3             0          0         0         0        0        0     0     0
+    ## 4             0          0         0         0        0        0     0     0
+    ## 5             0          0         0         0        0        0     0     0
+    ## 6             0          0         0         0        0        0     0     0
+    ## 7             0          0         0         0        0        0     0     0
+    ## 8             0          0         0         0        0        0     0     0
+    ## 9             0          0         0         0        0        0     0     0
+    ## 10            0          0         0         0        0        0     0     0
+    ## 11            0          0         0         0        0        0     0     0
+    ## 12            0          0         0         0        0        0     0     0
+    ## 13            0          0         0         0        0        0     0     0
+    ## 14            0          0         0         0        0        0     0     0
+    ## 15            0          0         0         0        0        0     0     0
+    ## 16            0          0         0         0        0        0     0     0
+    ## 17            0          0         0         0        0        0     0     0
+    ## 18            0          0         0         0        0        0     0     0
+    ## 19            0          0         0         0        0        0     0     0
+    ## 20            0          0         0         0        0        0     0     0
+    ## 21            0          0         0         0        0        0     0     0
+    ## 22            0          0         0         0        0        0     0     0
+    ## 23            0          0         0         0        0        0     0     0
+    ## 24            0          0         0         0        0        0     0     0
+    ## 25            0          0         0         0        0        0     0     0
+    ## 26            0          0         0         0        0        0     0     0
+    ## 27            0          0         0         0        0        0     0     0
+    ## 28            0          0         0         0        0        0     0     0
+    ## 29            0          0         0         0        0        0     0     0
+    ## 30            0          0         0         0        0        0     0     0
+    ## 31            0          0         0         0        0        0     0     0
+    ## 32            0          0         0         0        0        0     0     0
+    ## 33            0          0         0         0        0        0     0     0
+    ## 34            0          0         0         0        0        0     0     0
+    ## 35            0          0         0         0        0        0     0     0
+    ## 36            0          0         0         0        0        0     0     0
+    ## 37            0          0         0         0        0        0     0     0
+    ## 38            0          0         0         0        0        0     0     0
+    ## 39            0          0         0         0        0        0     0     0
+    ## 40            0          0         0         0        0        0     0     0
+    ## 41            0          0         0         0        0        0     0     0
+    ## 42            0          0         0         0        0        0     0     0
+    ## 43            0          0         0         0        0        0     0     0
+    ## 44            0          0         0         0        0        0     0     0
+    ## 45            0          0         0         0        0        0     0     0
+    ## 46            0          0         0         0        0        0     0     0
+    ## 47            0          0         0         0        0        0     0     0
+    ## 48            0          0         0         0        0        0     0     0
+    ## 49            0          0         0         0        0        0     0     0
+    ## 50            0          0         0         0        0        0     0     0
+    ## 51            0          0         0         0        0        0     0     0
+    ## 52            0          0         0         0        0        0     0     0
+    ## 53            0          0         0         0        0        0     0     0
+    ## 54            0          0         0         0        0        0     0     0
+    ## 55            0          0         0         0        0        0     0     0
+    ## 56            0          0         0         0        0        0     0     0
+    ## 57            0          0         0         0        0        0     0     0
+    ## 58            0          0         0         0        0        0     0     0
+    ## 59            0          0         0         0        0        0     0     0
+    ## 60            0          0         0         0        0        0     0     0
+    ## 61            0          0         0         0        0        0     0     0
+    ## 62            0          0         0         0        0        0     0     0
+    ## 63            0          0         0         0        0        0     0     0
+    ## 64            0          0         0         0        0        0     0     0
+    ## 65            0          0         0         0        0        0     0     0
+    ## 66            0          0         0         0        0        0     0     0
+    ## 67            0          0         0         0        0        0     0     0
+    ## 68            0          0         0         0        0        0     0     0
+    ## 69            0          0         0         0        0        0     0     0
+    ## 70            0          0         0         0        0        0     0     0
+    ## 71            0          0         0         0        0        0     0     0
+    ## 72            0          0         0         0        0        0     0     0
+    ## 73            0          0         0         0        0        0     0     0
+    ## 74            0          0         0         0        0        0     0     0
+    ## 75            0          0         0         0        0        0     0     0
+    ## 76            0          0         0         0        0        0     0     0
+    ## 77            0          0         0         0        0        0     0     0
+    ## 78            0          0         0         0        0        0     0     0
+    ## 79            0          0         0         0        0        0     0     0
+    ## 80            0          0         0         0        0        0     0     0
+    ## 81            0          0         0         0        0        0     0     0
+    ## 82            0          0         0         0        0        0     0     0
+    ## 83            0          0         0         0        0        0     0     0
+    ## 84            0          0         0         0        0        0     0     0
+    ## 85            0          0         0         0        0        0     0     0
+    ## 86            0          0         0         0        0        0     0     0
+    ## 87            0          0         0         0        0        0     0     0
+    ## 88            0          0         0         0        0        0     0     0
+    ## 89            0          0         0         0        0        0     0     0
+    ## 90            0          0         0         0        0        0     0     0
+    ## 91            0          0         0         0        0        0     0     0
+    ## 92            0          0         0         0        0        0     0     0
+    ## 93            0          0         0         0        0        0     0     0
+    ## 94            0          0         0         0        0        0     0     0
+    ## 95            0          0         0         0        0        0     0     0
+    ## 96            0          0         0         0        0        0     0     0
+    ## 97            0          0         0         0        0        0     0     0
+    ## 98            0          0         0         0        0        0     0     0
+    ## 99            0          0         0         0        0        0     0     0
+    ## 100           0          0         0         0        0        0     0     0
+    ## 101           0          0         0         0        0        0     0     0
+    ## 102           0          0         0         0        0        0     0     0
+    ## 103           0          0         0         0        0        0     0     0
+    ## 104           0          0         0         0        0        0     0     0
+    ## 105           0          0         0         0        0        0     0     0
+    ## 106           0          0         0         0        0        0     0     0
+    ## 107           0          0         0         0        0        0     0     0
+    ## 108           0          0         0         0        0        0     0     0
+    ## 109           0          0         0         0        0        0     0     0
+    ## 110           0          0         0         0        0        0     0     0
+    ##     TotCho_NA ApoA1_NA ApoB_NA ApoB_ApoA1_NA TotFA_NA UnSat_NA DHA_NA LA_NA
+    ## 1           0        0       0             0        0        0      0     0
+    ## 2           0        0       0             0        0        0      0     0
+    ## 3           0        0       0             0        0        0      0     0
+    ## 4           0        0       0             0        0        0      0     0
+    ## 5           0        0       0             0        0        0      0     0
+    ## 6           0        0       0             0        0        0      0     0
+    ## 7           0        0       0             0        0        0      0     0
+    ## 8           0        0       0             0        0        0      0     0
+    ## 9           0        0       0             0        0        0      0     0
+    ## 10          0        0       0             0        0        0      0     0
+    ## 11          0        0       0             0        0        0      0     0
+    ## 12          0        0       0             0        0        0      0     0
+    ## 13          0        0       0             0        0        0      0     0
+    ## 14          0        0       0             0        0        0      0     0
+    ## 15          0        0       0             0        0        0      0     0
+    ## 16          0        0       0             0        0        0      0     0
+    ## 17          0        0       0             0        0        0      0     0
+    ## 18          0        0       0             0        0        0      0     0
+    ## 19          0        0       0             0        0        0      0     0
+    ## 20          0        0       0             0        0        0      0     0
+    ## 21          0        0       0             0        0        0      0     0
+    ## 22          0        0       0             0        0        0      0     0
+    ## 23          0        0       0             0        0        0      0     0
+    ## 24          0        0       0             0        0        0      0     0
+    ## 25          0        0       0             0        0        0      0     0
+    ## 26          0        0       0             0        0        0      0     0
+    ## 27          0        0       0             0        0        0      0     0
+    ## 28          0        0       0             0        0        0      0     0
+    ## 29          0        0       0             0        0        0      0     0
+    ## 30          0        0       0             0        0        0      0     0
+    ## 31          0        0       0             0        0        0      0     0
+    ## 32          0        0       0             0        0        0      0     0
+    ## 33          0        0       0             0        0        0      0     0
+    ## 34          0        0       0             0        0        0      0     0
+    ## 35          0        0       0             0        0        0      0     0
+    ## 36          0        0       0             0        0        0      0     0
+    ## 37          0        0       0             0        0        0      0     0
+    ## 38          0        0       0             0        0        0      0     0
+    ## 39          0        0       0             0        0        0      0     0
+    ## 40          0        0       0             0        0        0      0     0
+    ## 41          0        0       0             0        0        0      0     0
+    ## 42          0        0       0             0        0        0      0     0
+    ## 43          0        0       0             0        0        0      0     0
+    ## 44          0        0       0             0        0        0      0     0
+    ## 45          0        0       0             0        0        0      0     0
+    ## 46          0        0       0             0        0        0      0     0
+    ## 47          0        0       0             0        0        0      0     0
+    ## 48          0        0       0             0        0        0      0     0
+    ## 49          0        0       0             0        0        0      0     0
+    ## 50          0        0       0             0        0        0      0     0
+    ## 51          0        0       0             0        0        0      0     0
+    ## 52          0        0       0             0        0        0      0     0
+    ## 53          0        0       0             0        0        0      0     0
+    ## 54          0        0       0             0        0        0      0     0
+    ## 55          0        0       0             0        0        0      0     0
+    ## 56          0        0       0             0        0        0      0     0
+    ## 57          0        0       0             0        0        0      0     0
+    ## 58          0        0       0             0        0        0      0     0
+    ## 59          0        0       0             0        0        0      0     0
+    ## 60          0        0       0             0        0        0      0     0
+    ## 61          0        0       0             0        0        0      0     0
+    ## 62          0        0       0             0        0        0      0     0
+    ## 63          0        0       0             0        0        0      0     0
+    ## 64          0        0       0             0        0        0      0     0
+    ## 65          0        0       0             0        0        0      0     0
+    ## 66          0        0       0             0        0        0      0     0
+    ## 67          0        0       0             0        0        0      0     0
+    ## 68          0        0       0             0        0        0      0     0
+    ## 69          0        0       0             0        0        0      0     0
+    ## 70          0        0       0             0        0        0      0     0
+    ## 71          0        0       0             0        0        0      0     0
+    ## 72          0        0       0             0        0        0      0     0
+    ## 73          0        0       0             0        0        0      0     0
+    ## 74          0        0       0             0        0        0      0     0
+    ## 75          0        0       0             0        0        0      0     0
+    ## 76          0        0       0             0        0        0      0     0
+    ## 77          0        0       0             0        0        0      0     0
+    ## 78          0        0       0             0        0        0      0     0
+    ## 79          0        0       0             0        0        0      0     0
+    ## 80          0        0       0             0        0        0      0     0
+    ## 81          0        0       0             0        0        0      0     0
+    ## 82          0        0       0             0        0        0      0     0
+    ## 83          0        0       0             0        0        0      0     0
+    ## 84          0        0       0             0        0        0      0     0
+    ## 85          0        0       0             0        0        0      0     0
+    ## 86          0        0       0             0        0        0      0     0
+    ## 87          0        0       0             0        0        0      0     0
+    ## 88          0        0       0             0        0        0      0     0
+    ## 89          0        0       0             0        0        0      0     0
+    ## 90          0        0       0             0        0        0      0     0
+    ## 91          0        0       0             0        0        0      0     0
+    ## 92          0        0       0             0        0        0      0     0
+    ## 93          0        0       0             0        0        0      0     0
+    ## 94          0        0       0             0        0        0      0     0
+    ## 95          0        0       0             0        0        0      0     0
+    ## 96          0        0       0             0        0        0      0     0
+    ## 97          0        0       0             0        0        0      0     0
+    ## 98          0        0       0             0        0        0      0     0
+    ## 99          0        0       0             0        0        0      0     0
+    ## 100         0        0       0             0        0        0      0     0
+    ## 101         0        0       0             0        0        0      0     0
+    ## 102         0        0       0             0        0        0      0     0
+    ## 103         0        0       0             0        0        0      0     0
+    ## 104         0        0       0             0        0        0      0     0
+    ## 105         0        0       0             0        0        0      0     0
+    ## 106         0        0       0             0        0        0      0     0
+    ## 107         0        0       0             0        0        0      0     0
+    ## 108         0        0       0             0        0        0      0     0
+    ## 109         0        0       0             0        0        0      0     0
+    ## 110         0        0       0             0        0        0      0     0
+    ##     FAw3_NA FAw6_NA PUFA_NA MUFA_NA SFA_NA DHA_FA_NA LA_FA_NA FAw3_FA_NA
+    ## 1         0       0       0       0      0         0        0          0
+    ## 2         0       0       0       0      0         0        0          0
+    ## 3         0       0       0       0      0         0        0          0
+    ## 4         0       0       0       0      0         0        0          0
+    ## 5         0       0       0       0      0         0        0          0
+    ## 6         0       0       0       0      0         0        0          0
+    ## 7         0       0       0       0      0         0        0          0
+    ## 8         0       0       0       0      0         0        0          0
+    ## 9         0       0       0       0      0         0        0          0
+    ## 10        0       0       0       0      0         0        0          0
+    ## 11        0       0       0       0      0         0        0          0
+    ## 12        0       0       0       0      0         0        0          0
+    ## 13        0       0       0       0      0         0        0          0
+    ## 14        0       0       0       0      0         0        0          0
+    ## 15        0       0       0       0      0         0        0          0
+    ## 16        0       0       0       0      0         0        0          0
+    ## 17        0       0       0       0      0         0        0          0
+    ## 18        0       0       0       0      0         0        0          0
+    ## 19        0       0       0       0      0         0        0          0
+    ## 20        0       0       0       0      0         0        0          0
+    ## 21        0       0       0       0      0         0        0          0
+    ## 22        0       0       0       0      0         0        0          0
+    ## 23        0       0       0       0      0         0        0          0
+    ## 24        0       0       0       0      0         0        0          0
+    ## 25        0       0       0       0      0         0        0          0
+    ## 26        0       0       0       0      0         0        0          0
+    ## 27        0       0       0       0      0         0        0          0
+    ## 28        0       0       0       0      0         0        0          0
+    ## 29        0       0       0       0      0         0        0          0
+    ## 30        0       0       0       0      0         0        0          0
+    ## 31        0       0       0       0      0         0        0          0
+    ## 32        0       0       0       0      0         0        0          0
+    ## 33        0       0       0       0      0         0        0          0
+    ## 34        0       0       0       0      0         0        0          0
+    ## 35        0       0       0       0      0         0        0          0
+    ## 36        0       0       0       0      0         0        0          0
+    ## 37        0       0       0       0      0         0        0          0
+    ## 38        0       0       0       0      0         0        0          0
+    ## 39        0       0       0       0      0         0        0          0
+    ## 40        0       0       0       0      0         0        0          0
+    ## 41        0       0       0       0      0         0        0          0
+    ## 42        0       0       0       0      0         0        0          0
+    ## 43        0       0       0       0      0         0        0          0
+    ## 44        0       0       0       0      0         0        0          0
+    ## 45        0       0       0       0      0         0        0          0
+    ## 46        0       0       0       0      0         0        0          0
+    ## 47        0       0       0       0      0         0        0          0
+    ## 48        0       0       0       0      0         0        0          0
+    ## 49        0       0       0       0      0         0        0          0
+    ## 50        0       0       0       0      0         0        0          0
+    ## 51        0       0       0       0      0         0        0          0
+    ## 52        0       0       0       0      0         0        0          0
+    ## 53        0       0       0       0      0         0        0          0
+    ## 54        0       0       0       0      0         0        0          0
+    ## 55        0       0       0       0      0         0        0          0
+    ## 56        0       0       0       0      0         0        0          0
+    ## 57        0       0       0       0      0         0        0          0
+    ## 58        0       0       0       0      0         0        0          0
+    ## 59        0       0       0       0      0         0        0          0
+    ## 60        0       0       0       0      0         0        0          0
+    ## 61        0       0       0       0      0         0        0          0
+    ## 62        0       0       0       0      0         0        0          0
+    ## 63        0       0       0       0      0         0        0          0
+    ## 64        0       0       0       0      0         0        0          0
+    ## 65        0       0       0       0      0         0        0          0
+    ## 66        0       0       0       0      0         0        0          0
+    ## 67        0       0       0       0      0         0        0          0
+    ## 68        0       0       0       0      0         0        0          0
+    ## 69        0       0       0       0      0         0        0          0
+    ## 70        0       0       0       0      0         0        0          0
+    ## 71        0       0       0       0      0         0        0          0
+    ## 72        0       0       0       0      0         0        0          0
+    ## 73        0       0       0       0      0         0        0          0
+    ## 74        0       0       0       0      0         0        0          0
+    ## 75        0       0       0       0      0         0        0          0
+    ## 76        0       0       0       0      0         0        0          0
+    ## 77        0       0       0       0      0         0        0          0
+    ## 78        0       0       0       0      0         0        0          0
+    ## 79        0       0       0       0      0         0        0          0
+    ## 80        0       0       0       0      0         0        0          0
+    ## 81        0       0       0       0      0         0        0          0
+    ## 82        0       0       0       0      0         0        0          0
+    ## 83        0       0       0       0      0         0        0          0
+    ## 84        0       0       0       0      0         0        0          0
+    ## 85        0       0       0       0      0         0        0          0
+    ## 86        0       0       0       0      0         0        0          0
+    ## 87        0       0       0       0      0         0        0          0
+    ## 88        0       0       0       0      0         0        0          0
+    ## 89        0       0       0       0      0         0        0          0
+    ## 90        0       0       0       0      0         0        0          0
+    ## 91        0       0       0       0      0         0        0          0
+    ## 92        0       0       0       0      0         0        0          0
+    ## 93        0       0       0       0      0         0        0          0
+    ## 94        0       0       0       0      0         0        0          0
+    ## 95        0       0       0       0      0         0        0          0
+    ## 96        0       0       0       0      0         0        0          0
+    ## 97        0       0       0       0      0         0        0          0
+    ## 98        0       0       0       0      0         0        0          0
+    ## 99        0       0       0       0      0         0        0          0
+    ## 100       0       0       0       0      0         0        0          0
+    ## 101       0       0       0       0      0         0        0          0
+    ## 102       0       0       0       0      0         0        0          0
+    ## 103       0       0       0       0      0         0        0          0
+    ## 104       0       0       0       0      0         0        0          0
+    ## 105       0       0       0       0      0         0        0          0
+    ## 106       0       0       0       0      0         0        0          0
+    ## 107       0       0       0       0      0         0        0          0
+    ## 108       0       0       0       0      0         0        0          0
+    ## 109       0       0       0       0      0         0        0          0
+    ## 110       0       0       0       0      0         0        0          0
+    ##     FAw6_FA_NA PUFA_FA_NA MUFA_FA_NA SFA_FA_NA
+    ## 1            0          0          0         0
+    ## 2            0          0          0         0
+    ## 3            0          0          0         0
+    ## 4            0          0          0         0
+    ## 5            0          0          0         0
+    ## 6            0          0          0         0
+    ## 7            0          0          0         0
+    ## 8            0          0          0         0
+    ## 9            0          0          0         0
+    ## 10           0          0          0         0
+    ## 11           0          0          0         0
+    ## 12           0          0          0         0
+    ## 13           0          0          0         0
+    ## 14           0          0          0         0
+    ## 15           0          0          0         0
+    ## 16           0          0          0         0
+    ## 17           0          0          0         0
+    ## 18           0          0          0         0
+    ## 19           0          0          0         0
+    ## 20           0          0          0         0
+    ## 21           0          0          0         0
+    ## 22           0          0          0         0
+    ## 23           0          0          0         0
+    ## 24           0          0          0         0
+    ## 25           0          0          0         0
+    ## 26           0          0          0         0
+    ## 27           0          0          0         0
+    ## 28           0          0          0         0
+    ## 29           0          0          0         0
+    ## 30           0          0          0         0
+    ## 31           0          0          0         0
+    ## 32           0          0          0         0
+    ## 33           0          0          0         0
+    ## 34           0          0          0         0
+    ## 35           0          0          0         0
+    ## 36           0          0          0         0
+    ## 37           0          0          0         0
+    ## 38           0          0          0         0
+    ## 39           0          0          0         0
+    ## 40           0          0          0         0
+    ## 41           0          0          0         0
+    ## 42           0          0          0         0
+    ## 43           0          0          0         0
+    ## 44           0          0          0         0
+    ## 45           0          0          0         0
+    ## 46           0          0          0         0
+    ## 47           0          0          0         0
+    ## 48           0          0          0         0
+    ## 49           0          0          0         0
+    ## 50           0          0          0         0
+    ## 51           0          0          0         0
+    ## 52           0          0          0         0
+    ## 53           0          0          0         0
+    ## 54           0          0          0         0
+    ## 55           0          0          0         0
+    ## 56           0          0          0         0
+    ## 57           0          0          0         0
+    ## 58           0          0          0         0
+    ## 59           0          0          0         0
+    ## 60           0          0          0         0
+    ## 61           0          0          0         0
+    ## 62           0          0          0         0
+    ## 63           0          0          0         0
+    ## 64           0          0          0         0
+    ## 65           0          0          0         0
+    ## 66           0          0          0         0
+    ## 67           0          0          0         0
+    ## 68           0          0          0         0
+    ## 69           0          0          0         0
+    ## 70           0          0          0         0
+    ## 71           0          0          0         0
+    ## 72           0          0          0         0
+    ## 73           0          0          0         0
+    ## 74           0          0          0         0
+    ## 75           0          0          0         0
+    ## 76           0          0          0         0
+    ## 77           0          0          0         0
+    ## 78           0          0          0         0
+    ## 79           0          0          0         0
+    ## 80           0          0          0         0
+    ## 81           0          0          0         0
+    ## 82           0          0          0         0
+    ## 83           0          0          0         0
+    ## 84           0          0          0         0
+    ## 85           0          0          0         0
+    ## 86           0          0          0         0
+    ## 87           0          0          0         0
+    ## 88           0          0          0         0
+    ## 89           0          0          0         0
+    ## 90           0          0          0         0
+    ## 91           0          0          0         0
+    ## 92           0          0          0         0
+    ## 93           0          0          0         0
+    ## 94           0          0          0         0
+    ## 95           0          0          0         0
+    ## 96           0          0          0         0
+    ## 97           0          0          0         0
+    ## 98           0          0          0         0
+    ## 99           0          0          0         0
+    ## 100          0          0          0         0
+    ## 101          0          0          0         0
+    ## 102          0          0          0         0
+    ## 103          0          0          0         0
+    ## 104          0          0          0         0
+    ## 105          0          0          0         0
+    ## 106          0          0          0         0
+    ## 107          0          0          0         0
+    ## 108          0          0          0         0
+    ## 109          0          0          0         0
+    ## 110          0          0          0         0
+    ## 
+    ## $expression
+    ## NULL
+    ## 
+    ## $att.pos
+    ## NULL
+    ## 
+    ## $first.col
+    ## [1] 2
+    ## 
+    ## $att.color
+    ## [1] "gray23"
+    ## 
+    ## $AllQueryData
+    ## NULL
+    ## 
+    ## $attribute.plots
+    ## NULL
+    ## 
+    ## $legend
+    ## NULL
+    ## 
+    ## $query.legend
+    ## [1] "none"
+    ## 
+    ## $BoxPlots
+    ## NULL
+    ## 
+    ## $Set_names
+    ## [1] "XL_VLDL_FC_NA" "L_HDL_TG_NA"   "L_HDL_FC_NA"   "L_HDL_CE_NA"  
+    ## [5] "L_HDL_C_NA"   
+    ## 
+    ## $set.metadata
+    ## NULL
+    ## 
+    ## $set.metadata.plots
+    ## NULL
+    ## 
+    ## attr(,"class")
+    ## [1] "upset"
 
 ### B. Post-imputation diagnostics
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
 ### C. Outlier analysis
 
 PCA:
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
 
 Column-wise boxplot:
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
-## Sample metadata
-
-### A. Pre-imputation diagnostics
-
-    ## [1] 117  22
-
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
-
-### B. Post-imputation diagnostics
-
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
-
-### C. Outlier analysis
-
-PCA:
-
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
-
-Column-wise boxplot:
-
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 # Session info
 
     ## R version 4.0.2 (2020-06-22)
     ## Platform: x86_64-apple-darwin17.0 (64-bit)
-    ## Running under: macOS Catalina 10.15.4
+    ## Running under: macOS  10.16
     ## 
     ## Matrix products: default
     ## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
@@ -169,23 +1223,21 @@ Column-wise boxplot:
     ## [1] ggplot2_3.3.2
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] ComplexHeatmap_2.5.5 Rcpp_1.0.5           RColorBrewer_1.1-2  
-    ##  [4] pillar_1.4.6         compiler_4.0.2       tools_4.0.2         
-    ##  [7] digest_0.6.25        clue_0.3-57          evaluate_0.14       
-    ## [10] lifecycle_0.2.0      tibble_3.0.3         gtable_0.3.0        
-    ## [13] lattice_0.20-41      png_0.1-7            pkgconfig_2.0.3     
-    ## [16] rlang_0.4.7          parallel_4.0.2       yaml_2.2.1          
-    ## [19] xfun_0.16            withr_2.2.0          cluster_2.1.0       
-    ## [22] dplyr_1.0.2          stringr_1.4.0        knitr_1.29          
-    ## [25] S4Vectors_0.26.1     IRanges_2.22.2       GlobalOptions_0.1.2 
-    ## [28] generics_0.0.2       vctrs_0.3.4          stats4_4.0.2        
-    ## [31] grid_4.0.2           tidyselect_1.1.0     cowplot_1.0.0       
-    ## [34] glue_1.4.2           mice_3.11.0          R6_2.4.1            
-    ## [37] GetoptLong_1.0.2     rmarkdown_2.3        farver_2.0.3        
-    ## [40] purrr_0.3.4          tidyr_1.1.2          magrittr_1.5        
-    ## [43] MASS_7.3-52          BiocGenerics_0.34.0  scales_1.1.1        
-    ## [46] backports_1.1.9      ellipsis_0.3.1       htmltools_0.5.0     
-    ## [49] visdat_0.5.3         shape_1.4.4          circlize_0.4.10     
-    ## [52] colorspace_1.4-1     labeling_0.3         stringi_1.4.6       
-    ## [55] munsell_0.5.0        broom_0.7.0          rjson_0.2.20        
-    ## [58] crayon_1.3.4
+    ##  [1] ComplexHeatmap_2.5.5 RColorBrewer_1.1-2   pillar_1.4.6        
+    ##  [4] compiler_4.0.2       tools_4.0.2          digest_0.6.27       
+    ##  [7] clue_0.3-57          evaluate_0.14        lifecycle_0.2.0     
+    ## [10] tibble_3.0.3         gtable_0.3.0         pkgconfig_2.0.3     
+    ## [13] png_0.1-7            rlang_0.4.10         parallel_4.0.2      
+    ## [16] yaml_2.2.1           xfun_0.16            withr_2.3.0         
+    ## [19] cluster_2.1.0        dplyr_1.0.2          stringr_1.4.0       
+    ## [22] knitr_1.29           S4Vectors_0.26.1     generics_0.0.2      
+    ## [25] vctrs_0.3.4          GlobalOptions_0.1.2  IRanges_2.22.2      
+    ## [28] cowplot_1.0.0        stats4_4.0.2         grid_4.0.2          
+    ## [31] tidyselect_1.1.0     glue_1.4.2           R6_2.5.0            
+    ## [34] GetoptLong_1.0.2     rmarkdown_2.6        farver_2.0.3        
+    ## [37] purrr_0.3.4          magrittr_2.0.1       MASS_7.3-52         
+    ## [40] scales_1.1.1         ellipsis_0.3.1       htmltools_0.5.0     
+    ## [43] BiocGenerics_0.34.0  visdat_0.5.3         shape_1.4.4         
+    ## [46] circlize_0.4.10      colorspace_1.4-1     labeling_0.3        
+    ## [49] stringi_1.4.6        munsell_0.5.0        crayon_1.3.4        
+    ## [52] rjson_0.2.20

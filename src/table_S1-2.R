@@ -1,13 +1,13 @@
-# TABLE S1-2
+# Table S1-2
 check_packages(
   bioc_packages = c(),
   cran_packages = c("writexl")
 )
 
-# S1: Get data
+# S1: Get data ----
 table_s1_data <- dataMatrix[names(heatmap_data)]
 
-# Get new names
+# Get new names ----
 s1_names_df <- merge(
   data.frame(variableName = names(table_s1_data)),
   variableMetadata,
@@ -15,7 +15,7 @@ s1_names_df <- merge(
   sort = FALSE
 )
 
-# Make table
+# Make table ----
 table_s1 <- data.frame(
   Variable = s1_names_df$alternativeName1,
   Description = s1_names_df$alternativeName2,
@@ -30,7 +30,7 @@ table_s1 <- data.frame(
   Third.Quartile = sapply(table_s1_data, function(x) {summary(x)["3rd Qu."]})
 )
 
-# S2: Get data
+# S2: Get data ----
 table_s2_data <- forest_table
 
 table_s2 <- data.frame(
@@ -54,7 +54,7 @@ table_s2 <- data.frame(
   Variance.explained.R2 = table_s2_data$R2
 )
 
-# Write to xslx
+# Write to xslx ----
 table_S1.2 <- list(
   Table.S1 = table_s1,
   Table.S2 = table_s2
