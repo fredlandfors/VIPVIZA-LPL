@@ -65,7 +65,7 @@ source(file = "./src/func/calc_forest.R")
 source(file = "./src/table_1.R")
 source(file = "./src/figure_1.R")
 source(file = "./src/figure_2.R")
-source(file = "./src/table_S1-2.R")
+source(file = "./src/table_S1-3.R")
 
 # Save data environment for markdown
 save.image(markdown_path)

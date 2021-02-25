@@ -1,7 +1,7 @@
 calc_forest <- function(
   lmData.in,
   conf_level = 0.95
-) {
+  ) {
   # Description:
   #   Make table with correlation stats
   # Args:

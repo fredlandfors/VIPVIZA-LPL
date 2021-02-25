@@ -19,8 +19,6 @@ fig_1_data$ANGPTL8_log <- log2(fig_1_data$ANGPTL8)
 fig_1_data$APOC1_APOC2 <- log2(fig_1_data$APOC1 / fig_1_data$APOC2)
 fig_1_data$APOC3_APOC2 <- log2(fig_1_data$APOC3 / fig_1_data$APOC2)
 
-fig_1_data$ANGPTL3_ANGPTL8 <- fig_1_data$ANGPTL3 / fig_1_data$ANGPTL8
-
 # Graphical parameters ----
 fig_1_linesize <- 0.5
 fig_1_pointsize <- 1
@@ -63,7 +61,7 @@ ratio1 <- ggstatsplot::ggscatterstats(
   data = fig_1_data,
   x = "APOC1_APOC2",
   y = "ITC",
-  xlab = "APOC1/APOC2",
+  xlab = "APOC1/APOC2 (log2)",
   ylab = "LPL activity (\U00B5J/s)",
   title = "",
   smooth.line.args = list(size = fig_1_linesize, color = "black"),
@@ -88,32 +86,7 @@ ratio2 <- ggstatsplot::ggscatterstats(
   data = fig_1_data,
   x = "APOC3_APOC2",
   y = "ITC",
-  xlab = "APOC3/APOC2",
-  ylab = "LPL activity (\U00B5J/s)",
-  title = "",
-  smooth.line.args = list(size = fig_1_linesize, color = "black"),
-  point.args	= list(size = fig_1_pointsize),
-  ggtheme = ggplot2::theme_classic(),
-  marginal.type = "histogram",
-  xfill = "white",
-  yfill = "white",
-  messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
-  ),
-  ggstatsplot.layer = FALSE,
-  output = "plot",
-  bf.message = FALSE,
-  results.subtitle = FALSE
-)
-
-ratio3 <- ggstatsplot::ggscatterstats(
-  data = fig_1_data,
-  x = "ANGPTL3_ANGPTL8",
-  y = "ITC",
-  xlab = "ANGPTL3/ANGPTL8",
+  xlab = "APOC3/APOC2 (log2)",
   ylab = "LPL activity (\U00B5J/s)",
   title = "",
   smooth.line.args = list(size = fig_1_linesize, color = "black"),
