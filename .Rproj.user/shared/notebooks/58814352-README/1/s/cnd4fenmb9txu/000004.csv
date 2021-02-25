@@ -1,2 +1,0 @@
-"0",""
-"0","ggplot(outlierAnalysis.dataMatrix, aes(y=bmi_3, x=as.factor(outlier.dataMatrix))) + geom_boxplot(aes(fill=as.factor(outlier.dataMatrix)), stat=""boxplot"", position=""dodge"", alpha=0.5, width=0.2) + theme_grey() + theme(text=element_text(family=""sans"", face=""plain"", color=""#000000"", size=15, hjust=0.5, vjust=0.5)) + guides(fill=guide_legend(title=""outlier.dataMatrix"")) + xlab(""as.factor(outlier.dataMatrix)"") + ylab(""bmi_3"")"

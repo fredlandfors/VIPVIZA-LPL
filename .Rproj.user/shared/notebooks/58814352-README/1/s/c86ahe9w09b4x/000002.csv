@@ -1,8 +1,0 @@
-"0","tableS2 <- data.frame(VariableName = lmData.out$biomarkerName,"
-"0","                     r = lmData.out$beta,"
-"0","                     se = lmData.out$se,"
-"0","                     p = lmData.out$pValue,"
-"0","                     pAdjusted = lmData.out$pValue_adjusted,"
-"0","                     lower95CI = lmData.out$lower95,"
-"0","                     higher95CI = lmData.out$higher95"
-"0","                     )"
