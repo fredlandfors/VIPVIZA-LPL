@@ -1,5 +1,0 @@
-"0","#scaled data"
-"0","lmData.in <- s_fullData "
-"0",""
-"0","#scaled and transformed data"
-"0","lmData.in2 <- st_fullData "
