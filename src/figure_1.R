@@ -1,7 +1,7 @@
 # Figure 1
 check_packages(
-  bioc_packages = c(),
-  cran_packages = c("Hmisc", "cowplot")
+  bioc_packages = c("ComplexHeatmap"),
+  cran_packages = c("Hmisc", "cowplot", "ggplot2")
 )
 library(cowplot)
 
@@ -25,19 +25,21 @@ heatmap_data <- heatmap_data[
       "XL_HDL_L", "XL_HDL_C", "L_HDL_L", "L_HDL_C",
       "M_HDL_L", "M_HDL_C", "S_HDL_L", "S_HDL_C", "Serum_C", "VLDL_C",
       "Remnant_C", "LDL_C", "HDL_C", "HDL2_C", "HDL3_C", "EstC", "FreeC",
-      "Serum_TG", "VLDL_TG",
+      "Serum_TG", 
+      "VLDL_TG",
       "LDL_TG", "HDL_TG", "TotCho", "ApoA1",
       "ApoB", "ApoB_ApoA1"
     )
 ]
 
-## Calculate heatmap correlations ----
+## Correlations ----
 cor2 <- Hmisc::rcorr(
   as.matrix(heatmap_data),
   type = "pearson"
 )
+cor2 <- cor2$r
 
-## Make heatmap annotation ----
+## Annotations ----
 library(ComplexHeatmap)
 
 row_text_22 <- c(
@@ -78,7 +80,7 @@ col_annotation_22 <- columnAnnotation(
   )
 )
 
-## Make heatmap new names ----
+##New names ----
 rnames1 <- data.frame(variableName = names(heatmap_data))
 colnames1 <- seq(1, ncol(heatmap_data))
 
@@ -95,14 +97,14 @@ rnames3 <- mapply(
   rnames2$alternativeName1
 )
 
-rownames(cor2$r) <- rnames3
-colnames(cor2$r) <- rnames3
+rownames(cor2) <- rnames3
+colnames(cor2) <- rnames3
 
 # Draw heatmap ----
 col_fun2 = circlize::colorRamp2(c(-1, 0, 1), c("blue", "white", "red"), transparency = 0)
 
 heatmap_22 <- Heatmap(
-  cor2$r,
+  cor2,
   cluster_rows = FALSE,
   cluster_columns = FALSE,
   
@@ -119,11 +121,12 @@ heatmap_22 <- Heatmap(
   
   left_annotation = row_annotation_22,
   
+  col = col_fun2,
+  
   ## Heatmap legend  ----
   show_heatmap_legend = TRUE,
   heatmap_legend_param = list(
     at = c(-1, -0.5, 0, 0.5, 1),
-    col_fun = col_fun2,
     title_position = "topcenter",
     title = "Pearsons's correlation coefficient (r)",
     title_gp = gpar(fontsize = 6, fontface = "bold", fontfamily = "Helvetica"),

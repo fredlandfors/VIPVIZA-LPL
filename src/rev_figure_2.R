@@ -1,4 +1,4 @@
-# Figure 2
+# Figure 3: Revised manuscript ----
 check_packages(
   bioc_packages = c(""),
   cran_packages = c("ggstatsplot", "cowplot", "ggplot2")
@@ -27,25 +27,25 @@ fig_1_pointsize <- 1
 p_correct_n <- 9
 
 # Define statistical tests function ----
-calc_fig_1_test <- function(df, x, y) {
+calc_fig_1_test <-  function(df, x, y, x_unit = "1-X") {
   form1 <- formula(paste0(y, " ~ ", x))
   fit1 <- lm(form1, data = df)
   sum1 <- summary(fit1)
   
-  options(scipen = 100, digits = 4)
+  options(scipen = 3, digits = 4)
   
   string1 <- paste0(
     "Effect = ",
     round(sum1$coefficients[x, "Estimate"], 4),
-    " \U00B5J/s per 1-X",
-    ", adj. P = ",
+    " \U00B5J/s per ", x_unit,
+    ",\nadj. P = ",
     round(
       p.adjust(
         sum1$coefficients[x, "Pr(>|t|)"],
         method = "bonferroni",
         n = p_correct_n
       ),
-      2
+     2
     ),
     ", R\U00B2 = ",
     round(sum1$r.squared, 2)
@@ -71,10 +71,13 @@ ratio1 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -96,10 +99,13 @@ ratio2 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -122,10 +128,13 @@ apoa5 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -146,10 +155,13 @@ angptl3 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -170,10 +182,13 @@ angptl4 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -194,10 +209,13 @@ angptl8 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -218,10 +236,13 @@ apoc1 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -242,10 +263,13 @@ apoc2 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -266,10 +290,13 @@ apoc3 <- ggstatsplot::ggscatterstats(
   xfill = "white",
   yfill = "white",
   messages = FALSE,
-  ggplot.component = ggplot2::theme(
-    text = element_text(family = "Helvetica", size = 6),
-    axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
-    axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "bold")
+  ggplot.component = list(
+    scale_y_continuous(limits = c(0, 2)),
+    theme(
+      text = element_text(family = "Helvetica", size = 6),
+      axis.title = element_text(family = "Helvetica", size = 6, face = "bold"),
+      axis.text = element_text(family = "Helvetica", size = 6, colour = "black", face = "plain")
+    )
   ),
   ggstatsplot.layer = FALSE,
   output = "plot",
@@ -279,64 +306,65 @@ apoc3 <- ggstatsplot::ggscatterstats(
 
 # Make grid and save
 figure_1 <- cowplot::plot_grid(
-  apoa5,
   angptl3,
   angptl4,
   angptl8,
-  apoc1,
   apoc2,
+  apoc1,
   apoc3,
   ratio1,
   ratio2,
+  apoa5,
   labels = c("A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.")
 )
 
+# Make pdf ----
 pdf.options(encoding = "ISOLatin1.enc")
 
 figure_1_ggdraw <- cowplot::ggdraw(figure_1) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOA5_log", "ITC"),
-    x = 1/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "ANGPTL3", "ITC", x_unit = "ng/mL"),
+    x = 1/6, y = 0.99, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "ANGPTL3", "ITC"),
-    x = 3/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "ANGPTL4_log", "ITC", x_unit = "log2 ng/mL"),
+    x = 3/6, y = 0.99, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "ANGPTL4_log", "ITC"),
-    x = 5/6, y = 0.99, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "ANGPTL8_log", "ITC", x_unit = "log2 pg/mL"),
+    x = 5/6, y = 0.99, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "ANGPTL8_log", "ITC"),
-    x = 1/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOC2_log", "ITC", x_unit = "log2 mg/mL"),
+    x = 1/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOC1", "ITC"),
-    x = 3/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOC1", "ITC", x_unit = "log2 \U00B5g/mL"),
+    x = 3/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOC2_log", "ITC"),
-    x = 5/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOC3_log", "ITC", x_unit = "log2 mg/mL"),
+    x = 5/6, y = 0.99 - 1/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOC3_log", "ITC"),
-    x = 1/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOC1_APOC2", "ITC", x_unit = "log2"),
+    x = 1/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOC1_APOC2", "ITC"),
-    x = 3/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOC3_APOC2", "ITC", x_unit = "log2"),
+    x = 3/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) +
   cowplot::draw_label(
-    calc_fig_1_test(fig_1_data, "APOC3_APOC2", "ITC"),
-    x = 5/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1.5,
+    calc_fig_1_test(fig_1_data, "APOA5_log", "ITC", x_unit = "log2 ng/mL"),
+    x = 5/6, y = 0.99 - 2/3, hjust = 0.45, vjust = 1,
     fontfamily = "Helvetica", fontface = "plain", color = "black", size = 6,
   ) 
 
